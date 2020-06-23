@@ -1,5 +1,54 @@
 # NgAngularfireTestbed
 
+- [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
+- https://firebase.google.com/docs/emulator-suite
+
+- UKM
+  - firestore.rules.spec.ts
+  - transactions.service.spec.ts
+- tickist-app
+- angularfire
+  - document.spec.ts
+    - provide
+
+## Test Security Rules using emulator
+
+### Scripts
+
+#### emulators:start
+
+Starts emulator
+
+#### test-firestore-rules
+
+Runs security rules tests. Requires the emulator to be running.
+
+#### test-firestore-rules:emulator
+
+Starts emulator and runs security rules tests.
+
+- emulators:start
+  - Starts emulator
+- test-firestore-rules
+  - Runs security rules tests. Requires the emulator to be running.
+- test-firestore-rules:emulator
+  - Starts emulator and runs security rules tests.
+
+or
+
+- Run script emulators:start
+- Run script test-firestore-rules-b
+
+## Run app using emulator
+
+## Run e2e tests with emulator
+
+## Run unit tests with emulator?
+
+- need to only run tests when emulator is running.
+
+## blah
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
