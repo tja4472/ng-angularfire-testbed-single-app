@@ -15,10 +15,8 @@
     "test-firestore-rules:emulator": "firebase emulators:exec --only firestore \"jasmine test-security-rules/firestore.rules.spec.js\"",   
     "pretest-firestore-rules": "tsc test-security-rules/firestore.rules.spec.ts",     
     "test-firestore-rules": "jasmine test-security-rules/firestore.rules.spec.js",    
+    "--- emulators ---": "",    
     "emulators:start": "firebase emulators:start --only firestore",
-    "jasmine-test": "jasmine ./firestore.rules.spec.js",
-    "bbb": "ts-node node_modules/jasmine/bin/jasmine.js ./firestore.rules.spec.ts",
-    "aaa": "ts-node node_modules/jasmine/bin/jasmine",
     "e2e": "ng e2e",
     "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\""
   },

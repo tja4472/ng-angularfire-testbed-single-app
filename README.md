@@ -13,17 +13,41 @@
 
 ## Test Security Rules using emulator
 
-### Scripts
+Run script `test-firestore-rules:emulator` or run scripts `emulators:start` and `test-firestore-rules`.
 
-#### emulators:start
+## Run app using emulator
+
+Run scripts `emulators:start` and `start:emulator`.
+
+## Run e2e tests with emulator
+
+Use Cypress.
+- https://github.com/cypress-io/cypress
+- https://www.cypress.io/
+
+## Run unit tests with emulator?
+
+May have a requirement to run tests which require the emulator to be running. These tests should not run when the emulator is not running.
+
+The current technique is to `x` the tests when not needed and `f` the tests when they are needed.
+
+Or maybe switch to Jest.
+
+## Scripts
+
+### emulators:start
 
 Starts emulator
 
-#### test-firestore-rules
+### start:emulator
+
+Starts app using the emulator configuration. Requires the emulator to be running.
+
+### test-firestore-rules
 
 Runs security rules tests. Requires the emulator to be running.
 
-#### test-firestore-rules:emulator
+### test-firestore-rules:emulator
 
 Starts emulator and runs security rules tests.
 
@@ -34,18 +58,7 @@ Starts emulator and runs security rules tests.
 - test-firestore-rules:emulator
   - Starts emulator and runs security rules tests.
 
-or
-
-- Run script emulators:start
-- Run script test-firestore-rules-b
-
-## Run app using emulator
-
-## Run e2e tests with emulator
-
-## Run unit tests with emulator?
-
-- need to only run tests when emulator is running.
+* need to only run tests when emulator is running.
 
 ## blah
 
