@@ -17,7 +17,9 @@
     "--- emulators ---": "",
     "emulators:start": "firebase emulators:start --only firestore",
     "e2e": "ng e2e",
-    "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\""
+    "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -40,10 +42,11 @@
     "@angular/cli": "10.0.0",
     "@angular/compiler-cli": "10.0.1",
     "@firebase/testing": "0.20.5",
-    "@types/node": "12.12.47",
     "@types/jasmine": "3.5.10",
     "@types/jasminewd2": "2.0.8",
+    "@types/node": "12.12.47",
     "codelyzer": "5.2.2",
+    "cypress": "4.9.0",
     "firebase-tools": "8.4.3",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "5.0.2",
