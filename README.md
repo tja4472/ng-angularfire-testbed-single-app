@@ -3,14 +3,6 @@
 - [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
 - https://firebase.google.com/docs/emulator-suite
 
-- UKM
-  - firestore.rules.spec.ts
-  - transactions.service.spec.ts
-- tickist-app
-- angularfire
-  - document.spec.ts
-    - provide
-
 ## Test Security Rules using emulator
 
 Run script `test-firestore-rules:emulator` or run scripts `emulators:start` and `test-firestore-rules`.
@@ -21,9 +13,7 @@ Run scripts `emulators:start` and `start:emulator`.
 
 ## Run e2e tests with emulator
 
-Use Cypress.
-- https://github.com/cypress-io/cypress
-- https://www.cypress.io/
+Run scripts `emulators:start` and `cy:emulate`.
 
 ## Run unit tests with emulator?
 
@@ -34,6 +24,10 @@ The current technique is to `x` the tests when not needed and `f` the tests when
 Or maybe switch to Jest.
 
 ## Scripts
+
+### cy:emulate
+
+Opens Cypress after setting environment variable.
 
 ### emulators:start
 
@@ -61,6 +55,21 @@ Starts emulator and runs security rules tests.
 * need to only run tests when emulator is running.
 
 ## blah
+
+Use Cypress.
+
+- https://github.com/cypress-io/cypress
+- https://www.cypress.io/
+
+- UKM
+  - firestore.rules.spec.ts
+  - transactions.service.spec.ts
+- tickist-app
+- angularfire
+
+  - document.spec.ts
+
+    - provide
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
