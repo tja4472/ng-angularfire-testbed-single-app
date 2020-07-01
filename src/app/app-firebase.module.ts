@@ -18,7 +18,14 @@ import {
 import { environment } from '../environments/environment';
 
 // const shouldUseEmulator = () => true;
-const shouldUseEmulator = () => environment.useEmulator;
+const shouldUseEmulator = () => {
+  console.log('environment.useEmulator>', environment.useEmulator);
+  return environment.useEmulator;
+};
+
+// experimentalForceLongPolling required for Cypress testing.
+// Cannot connect to Firestore emulator
+// https://github.com/cypress-io/cypress/issues/6350#issuecomment-587708852
 
 @NgModule({
   imports: [
@@ -35,7 +42,13 @@ const shouldUseEmulator = () => environment.useEmulator;
     {
       provide: FIRESTORE_SETTINGS,
       useFactory: () =>
-        shouldUseEmulator() ? { host: 'localhost:8080', ssl: false } : {},
+        shouldUseEmulator()
+          ? {
+              host: 'localhost:8080',
+              ssl: false,
+              experimentalForceLongPolling: true,
+            }
+          : {},
     },
   ],
 })

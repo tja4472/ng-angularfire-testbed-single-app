@@ -58,8 +58,12 @@ Starts emulator and runs security rules tests.
 
 Use Cypress.
 
+# References
+
+- https://github.com/angular/angularfire
 - https://github.com/cypress-io/cypress
 - https://www.cypress.io/
+- https://github.com/prescottprue/cypress-firebase
 
 - UKM
   - firestore.rules.spec.ts
