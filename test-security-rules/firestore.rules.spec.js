@@ -41,16 +41,17 @@ var fs = require("fs");
 var projectId = 'emulators-codelab-a5a89';
 var rules = fs.readFileSync('test-security-rules/firestore.test.rules', 'utf8');
 var coverageUrl = "http://localhost:8080/emulator/v1/projects/" + projectId + ":ruleCoverage.html";
-/**
- * Creates a new app with authentication data matching the input.
- *
- * @param auth the object to use for authentication (typically {uid: some-uid})
- * @return the app.
- */
-function authedApp(auth) {
+var myId = 'user_abc';
+var theirId = 'user_xyz';
+var myAuth = { uid: myId, email: 'abc@gamil.com' };
+function getFirestore(auth) {
     return firebase.initializeTestApp({ projectId: projectId, auth: auth }).firestore();
 }
-fdescribe('test security rules', function () {
+// initializeAdminApp ignores rules
+function getAdminFirestore() {
+    return firebase.initializeAdminApp({ projectId: projectId }).firestore();
+}
+describe('test security rules', function () {
     beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -74,9 +75,16 @@ fdescribe('test security rules', function () {
             }
         });
     }); });
+    /* ??
+    afterEach(async () => {
+      // Clear the database between tests
+      await firebase.clearFirestoreData({ projectId });
+    });
+  */
     afterAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             // await Promise.all(firebase.apps().map((app) => app.delete()));
+            // await firebase.clearFirestoreData({ projectId });
             console.log("View rule coverage information at " + coverageUrl + "\n");
             return [2 /*return*/];
         });
@@ -89,7 +97,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp(null);
+                    db = getFirestore(null);
                     profile = db.collection('users').doc('alice');
                     return [4 /*yield*/, firebase.assertFails(profile.set({ birthday: 'January 1' }))];
                 case 1:
@@ -103,7 +111,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp({ uid: 'alice' });
+                    db = getFirestore({ uid: 'alice' });
                     profile = db.collection('users').doc('alice');
                     return [4 /*yield*/, firebase.assertFails(profile.set({ birthday: 'January 1' }))];
                 case 1:
@@ -123,7 +131,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp({ uid: 'alice' });
+                    db = getFirestore({ uid: 'alice' });
                     return [4 /*yield*/, firebase.assertSucceeds(db.collection('users').doc('alice').set({
                             birthday: 'January 1',
                             createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -145,7 +153,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp(null);
+                    db = getFirestore(null);
                     profile = db.collection('users').doc('alice');
                     return [4 /*yield*/, firebase.assertSucceeds(profile.get())];
                 case 1:
@@ -159,7 +167,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp({ uid: 'alice' });
+                    db = getFirestore({ uid: 'alice' });
                     room = db.collection('rooms').doc('firebase');
                     return [4 /*yield*/, firebase.assertSucceeds(room.set({
                             owner: 'alice',
@@ -176,7 +184,7 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    db = authedApp({ uid: 'alice' });
+                    db = getFirestore({ uid: 'alice' });
                     room = db.collection('rooms').doc('firebase');
                     return [4 /*yield*/, firebase.assertFails(room.set({
                             owner: 'scott',
@@ -193,8 +201,8 @@ fdescribe('test security rules', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    alice = authedApp({ uid: 'alice' });
-                    bob = authedApp({ uid: 'bob' });
+                    alice = getFirestore({ uid: 'alice' });
+                    bob = getFirestore({ uid: 'bob' });
                     return [4 /*yield*/, firebase.assertSucceeds(bob.collection('rooms').doc('snow').set({
                             owner: 'bob',
                             topic: 'All Things Snowboarding'
@@ -205,6 +213,93 @@ fdescribe('test security rules', function () {
                             owner: 'alice',
                             topic: 'skiing > snowboarding'
                         }))];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+// https://firebaseonair.withgoogle.com/events/firebase-live20/watch?talk=security-rules-with-emulator-suite
+describe('Unit testing security rules with the new Firebase emulator suite.', function () {
+    beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, firebase.loadFirestoreRules({ projectId: projectId, rules: rules })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    beforeEach(function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: 
+                // Clear the database between tests
+                return [4 /*yield*/, firebase.clearFirestoreData({ projectId: projectId })];
+                case 1:
+                    // Clear the database between tests
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    // =============================
+    it('Can read a single public post', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var admin, postId, setupDoc, db, testRead;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    admin = getAdminFirestore();
+                    postId = 'public_post';
+                    setupDoc = admin.collection('aposts').doc(postId);
+                    return [4 /*yield*/, setupDoc.set({ authorId: theirId, visibility: 'public' })];
+                case 1:
+                    _a.sent();
+                    db = getFirestore(null);
+                    testRead = db.collection('aposts').doc(postId);
+                    return [4 /*yield*/, firebase.assertSucceeds(testRead.get())];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('Can read a private post belonging to the user', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var admin, postId, setupDoc, db, testRead;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    admin = getAdminFirestore();
+                    postId = 'private_post';
+                    setupDoc = admin.collection('aposts').doc(postId);
+                    return [4 /*yield*/, setupDoc.set({ authorId: myId, visibility: 'private' })];
+                case 1:
+                    _a.sent();
+                    db = getFirestore(myAuth);
+                    testRead = db.collection('aposts').doc(postId);
+                    return [4 /*yield*/, firebase.assertSucceeds(testRead.get())];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it("Can't read a private post belonging to another user", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var admin, postId, setupDoc, db, testRead;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    admin = getAdminFirestore();
+                    postId = 'private_post';
+                    setupDoc = admin.collection('aposts').doc(postId);
+                    return [4 /*yield*/, setupDoc.set({ authorId: theirId, visibility: 'private' })];
+                case 1:
+                    _a.sent();
+                    db = getFirestore(myAuth);
+                    testRead = db.collection('aposts').doc(postId);
+                    return [4 /*yield*/, firebase.assertFails(testRead.get())];
                 case 2:
                     _a.sent();
                     return [2 /*return*/];
