@@ -1,0 +1,14 @@
+{
+  "name": "jest-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@firebase/testing": "0.20.6",
+    "@types/jest": "26.0.4",
+    "jest": "26.1.0",
+    "ts-jest": "26.1.1",
+    "typescript": "3.9.6"
+  }
+}

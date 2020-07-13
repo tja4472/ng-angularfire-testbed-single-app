@@ -2,10 +2,7 @@ import * as firebase from '@firebase/testing';
 import * as fs from 'fs';
 
 const projectId = 'emulators-codelab-a5a89';
-const rules = fs.readFileSync(
-  'test-security-rules/firestore.test.rules',
-  'utf8'
-);
+const rules = fs.readFileSync('firestore.test.rules', 'utf8');
 const coverageUrl = `http://localhost:8080/emulator/v1/projects/${projectId}:ruleCoverage.html`;
 
 const myId = 'user_abc';
@@ -23,6 +20,9 @@ function getAdminFirestore() {
 
 describe('test security rules', () => {
   beforeAll(async () => {
+    // Load the content of the "firestore.rules" file into the emulator before running the
+    // test suite. This is necessary because we are using a fake Project ID in the tests,
+    // so the rules "hot reloading" behavior which works in the Web App does not apply here.
     await firebase.loadFirestoreRules({ projectId, rules });
   });
 
@@ -130,7 +130,7 @@ describe('test security rules', () => {
 });
 
 // https://firebaseonair.withgoogle.com/events/firebase-live20/watch?talk=security-rules-with-emulator-suite
-describe('Unit testing security rules with the new Firebase emulator suite.', () => {
+xdescribe('Unit testing security rules with the new Firebase emulator suite.', () => {
   beforeAll(async () => {
     await firebase.loadFirestoreRules({ projectId, rules });
   });
