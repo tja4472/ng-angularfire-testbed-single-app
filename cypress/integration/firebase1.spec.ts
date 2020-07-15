@@ -19,6 +19,7 @@ describe('test', () => {
   it('should display welcome message', () => {
     cy.visit('/');
     getHello().contains('Hello');
+    cy.contains('Start listening to Firestore').click();
     cy.contains('XXXX');
     // cy.get('add item').click();
     // cy.get(':nth-child(6) > button')
@@ -36,6 +37,7 @@ describe('login and logout', () => {
     cy.contains('Please sign in');
     login();
     getHello().contains('Hello xY');
+    cy.contains('Start listening to Firestore').click();
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.contains('XXXX');
     cy.get('ul').children().should('have.length', 1);

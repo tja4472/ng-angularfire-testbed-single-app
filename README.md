@@ -11,13 +11,16 @@
 
 Run script `test-firestore-rules:emulator` or run scripts `emulators:start` and `test-firestore-rules`.
 
-## Run app using emulator
+# Run app using emulator
 
-Run scripts `emulators:start` and `start:emulator`.
+- Run script `emulators:start`.
+- Run script `start:emulator`.
 
-## Run e2e tests with emulator
+# Run Cypress tests with emulator
 
-Run scripts `emulators:start` and `cy:emulate`.
+- Run script `emulators:start`.
+- Run script `start:emulator`.
+- Run script `cy:emulate`.
 
 ## Run unit tests with emulator?
 
