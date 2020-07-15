@@ -1,0 +1,5 @@
+{
+    "jest.pathToJest": "npm test --",
+    "jest.autoEnable": false,    
+    "jest.enableInlineErrorMessages": true,
+}

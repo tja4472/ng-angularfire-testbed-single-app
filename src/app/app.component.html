@@ -3,6 +3,9 @@
   <h1>Hello {{ user.uid }}!</h1>
   <button (click)="signOut()">Sign Out</button>
   <div>
+    <button (click)="startListening()">Start listening to Firestore</button>
+  </div>  
+  <div>
     <button (click)="addItem()">Add Item</button>
   </div>
   <div>

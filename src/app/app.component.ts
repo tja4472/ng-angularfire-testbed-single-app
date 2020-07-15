@@ -24,14 +24,19 @@ export class AppComponent {
   private itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
 
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Item>('items');
+  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
+
+  startListening() {
+    this.itemsCollection = this.afs.collection<Item>('items');
     this.items = this.itemsCollection.valueChanges();
   }
 
   addItem() {
     console.log('## addItem');
-    const item: Item = { id: 'Added using add', name: Math.random().toString() };
+    const item: Item = {
+      id: 'Added using add',
+      name: Math.random().toString(),
+    };
     this.itemsCollection.add(item).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

@@ -1,3 +1,7 @@
+# TODO
+
+- Get ng test working with app.
+
 # NgAngularfireTestbed
 
 - [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
@@ -74,6 +78,20 @@ Use Cypress.
   - document.spec.ts
 
     - provide
+
+# Testing Security Rules with Jest
+
+- Open the `test-security-rules` folder in another instance of vscode. This will allow the use of the `vscode-jest` extension for working with the tests.
+- Initially Jest will be stopped. `View > Command Pallete > Jest: Start Ruuner` will start Jest.
+- The emulator needs to be running for the the tests to pass: `emulators:start`
+
+# Notes
+
+After upgrade Angular to v8: Can't resolve all parameters for Component: (?)
+
+https://github.com/thymikee/jest-preset-angular/issues/288
+
+# aaa
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
