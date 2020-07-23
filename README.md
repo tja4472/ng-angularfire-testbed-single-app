@@ -68,9 +68,13 @@ Use Cypress.
 # References
 
 - https://github.com/angular/angularfire
-- https://github.com/cypress-io/cypress
-- https://www.cypress.io/
-- https://github.com/prescottprue/cypress-firebase
+- Cypress
+
+  - https://github.com/cypress-io/cypress
+  - https://www.cypress.io/
+  - https://github.com/cypress-io/cypress-realworld-app
+  - https://github.com/prescottprue/cypress-firebase
+- https://github.com/firebase/firebase-tools
 
 - UKM
   - firestore.rules.spec.ts
@@ -81,6 +85,11 @@ Use Cypress.
   - document.spec.ts
 
     - provide
+
+# Release Notes
+
+- [firebase-tools](https://github.com/firebase/firebase-tools/releases)
+- [Typescript](https://github.com/microsoft/TypeScript/releases)
 
 # Testing Security Rules with Jest
 

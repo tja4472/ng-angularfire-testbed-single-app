@@ -16,13 +16,19 @@ describe('test', () => {
 
   // beforeEach(navigateTo);
 
-  it('should display welcome message', () => {
+  it('use page object - should display hello message', () => {
     cy.visit('/');
     getHello().contains('Hello');
-    cy.contains('Start listening to Firestore').click();
-    cy.contains('XXXX');
-    // cy.get('add item').click();
-    // cy.get(':nth-child(6) > button')
+  });
+
+  it('should display welcome message', () => {
+    cy.visit('/');
+    cy.getBySel('hello-text').should('contain', 'Hello');
+    cy.getBySel('start-listening-button').click();
+    // cy.getBySel('list-item', { timeout: 10000 }).should('contain', 'XXXX');
+    cy.getBySel('list-item', { timeout: 10000 })
+      .should('be.visible')
+      .and('contain', 'XXXX');
     cy.contains('Add Item').click();
     cy.contains('Add Item Set').click();
   });
@@ -34,13 +40,21 @@ describe('login and logout', () => {
     cy.callFirestore('delete', 'items', opts);
     cy.visit('/');
     getGreeting().contains('Welcome to');
-    cy.contains('Please sign in');
+    cy.getBySel('hello-text').should('not.be.visible');
+    cy.getBySel('sign-in-text')
+      .should('be.visible')
+      .and('contain', 'Please sign in');
     login();
-    getHello().contains('Hello xY');
+    // getHello().contains('Hello xY');
+    cy.getBySel('hello-text').should('contain', 'Hello xY');
     cy.contains('Start listening to Firestore').click();
     cy.callFirestore('add', 'items', { name: 'XXXX' });
-    cy.contains('XXXX');
-    cy.get('ul').children().should('have.length', 1);
+    cy.getBySel('list-item', { timeout: 10000 })
+      .should('be.visible')
+      .and('contain', 'XXXX');
+    // cy.contains('XXXX');
+    // cy.get('ul').children().should('have.length', 1);
+    cy.getBySel('list').children().should('have.length', 1);
     // cy.get('add item').click();
     // cy.get(':nth-child(6) > button')
     cy.contains('Add Item').click();

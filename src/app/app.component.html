@@ -1,24 +1,26 @@
 <h1>Welcome to ng-angularfire-testbed</h1>
 <div *ngIf="auth.user | async as user; else showLogin">
-  <h1>Hello {{ user.uid }}!</h1>
+  <h1 data-test="hello-text">Hello {{ user.uid }}!</h1>
   <button (click)="signOut()">Sign Out</button>
   <div>
-    <button (click)="startListening()">Start listening to Firestore</button>
-  </div>  
+    <button data-test="start-listening-button" (click)="startListening()">
+      Start listening to Firestore
+    </button>
+  </div>
   <div>
     <button (click)="addItem()">Add Item</button>
   </div>
   <div>
     <button (click)="addItemSet()">Add Item Set</button>
   </div>
-  <ul>
-    <li *ngFor="let item of items | async">
+  <ul data-test="list">
+    <li data-test="list-item" *ngFor="let item of items | async">
       {{ item.name }}
     </li>
   </ul>
 </div>
 <ng-template #showLogin>
-  <p>Please sign in.</p>
+  <p data-test="sign-in-text">Please sign in.</p>
   <button (click)="signInAnonymously()">Sign In Anonymously</button>
   <div>
     <button (click)="signInWithEmailAndPassword()">
