@@ -7,20 +7,27 @@
 - [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
 - https://firebase.google.com/docs/emulator-suite
 
-## Test Security Rules using emulator
+# Test security rules using emulator
 
-Run script `test-firestore-rules:emulator` or run scripts `emulators:start` and `test-firestore-rules`.
+Run scripts
+
+- `emulators:start`
+- `test - test-security-rules`
 
 # Run app using emulator
 
-- Run script `emulators:start`.
-- Run script `start:emulator`.
+Run scripts
+
+- `emulators:start`
+- `start:emulator`
 
 # Run Cypress tests with emulator
 
-- Run script `emulators:start`.
-- Run script `start:emulator`.
-- Run script `cy:emulate`.
+Run scripts
+
+- `emulators:start`
+- `start:emulator`
+- `cy:emulate`
 
 ## Run unit tests with emulator?
 
