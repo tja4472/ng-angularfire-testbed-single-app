@@ -74,6 +74,7 @@ Use Cypress.
   - https://www.cypress.io/
   - https://github.com/cypress-io/cypress-realworld-app
   - https://github.com/prescottprue/cypress-firebase
+
 - https://github.com/firebase/firebase-tools
 
 - UKM
@@ -88,7 +89,12 @@ Use Cypress.
 
 # Release Notes
 
+- [@angular-builders/jest](https://github.com/just-jeb/angular-builders/blob/master/packages/jest/CHANGELOG.md)
+- [@firebase/testing](https://github.com/firebase/firebase-js-sdk/blob/master/packages/testing/CHANGELOG.md)
+- [firebase](https://firebase.google.com/support/release-notes/js)
 - [firebase-tools](https://github.com/firebase/firebase-tools/releases)
+- [cypress](https://github.com/cypress-io/cypress/releases)
+- [cypress-firebase](https://github.com/prescottprue/cypress-firebase/releases)
 - [Typescript](https://github.com/microsoft/TypeScript/releases)
 
 # Testing Security Rules with Jest
