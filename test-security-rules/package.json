@@ -5,10 +5,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@firebase/testing": "0.20.6",
-    "@types/jest": "26.0.4",
+    "@firebase/testing": "0.20.9",
+    "@types/jest": "26.0.7",
     "jest": "26.1.0",
-    "ts-jest": "26.1.1",
-    "typescript": "3.9.6"
+    "ts-jest": "26.1.3",
+    "typescript": "3.9.7"
   }
 }
