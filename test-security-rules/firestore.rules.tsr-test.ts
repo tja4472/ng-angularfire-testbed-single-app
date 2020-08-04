@@ -130,7 +130,7 @@ describe('test security rules', () => {
 });
 
 // https://firebaseonair.withgoogle.com/events/firebase-live20/watch?talk=security-rules-with-emulator-suite
-xdescribe('Unit testing security rules with the new Firebase emulator suite.', () => {
+describe('Unit testing security rules with the new Firebase emulator suite.', () => {
   beforeAll(async () => {
     await firebase.loadFirestoreRules({ projectId, rules });
   });
