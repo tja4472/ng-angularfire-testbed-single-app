@@ -37,19 +37,15 @@ The current technique is to `x` the tests when not needed and `f` the tests when
 
 Or maybe switch to Jest.
 
+# Scripts
+
+| `npm run ...`   | Description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| cy:emulate      | Opens Cypress after setting environment variable.                                 |
+| emulators:start | Starts emulator                                                                   |
+| start:emulator  | Starts app using the emulator configuration. Requires the emulator to be running. |
+
 ## Scripts
-
-### cy:emulate
-
-Opens Cypress after setting environment variable.
-
-### emulators:start
-
-Starts emulator
-
-### start:emulator
-
-Starts app using the emulator configuration. Requires the emulator to be running.
 
 ### test-firestore-rules
 
