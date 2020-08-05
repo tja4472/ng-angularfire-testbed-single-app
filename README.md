@@ -1,11 +1,50 @@
-# TODO
+# Description
 
-- Get ng test working with app.
+Intended to show:
 
-# NgAngularfireTestbed
+- The use of AngularFire with the Firebase emulator.
+- Testing Firestore security rules with the Firebase emulator.
+- The use of Cypress with Firestore and the Firebase emulator.
 
-- [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
-- https://firebase.google.com/docs/emulator-suite
+# Setup
+
+In the following YOUR_PROJECT_ID is the id of your Firebase project.
+
+Add the following files
+
+- `serviceAccount.json`
+- `.firebaserc`
+- `test-security-rules\firebase-info.ts`
+- `src\app\firebase\firebase-config.ts`
+- `cypress\support\firebase\firebase-config.ts`
+
+Run `npm install` in root and in `test-security-rules.
+
+## `serviceAccount.json`
+
+To generate a private key file for your service account:
+
+1. In the Firebase console, open `Settings > Service Accounts`.
+
+2. Click `Generate New Private Key`, then confirm by clicking `Generate Key`.
+
+3. Securely store the JSON file containing the key.
+
+## `.firebaserc`
+
+```json
+{
+  "projects": {
+    "default": "YOUR_PROJECT_ID"
+  }
+}
+```
+
+## `test-security-rules\firebase-info.ts`
+
+## `src\app\firebase\firebase-config.ts`
+
+## - `cypress\support\firebase\firebase-config.ts`
 
 # Test security rules using emulator
 
@@ -69,6 +108,9 @@ Starts emulator and runs security rules tests.
 Use Cypress.
 
 # References
+
+- [Test Security Rules](https://firebase.google.com/docs/rules/emulator-setup)
+- https://firebase.google.com/docs/emulator-suite
 
 - https://github.com/angular/angularfire
 - Cypress
