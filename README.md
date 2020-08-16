@@ -1,10 +1,14 @@
+# Todo
+
+- Testing data service.
+
 # Description
 
 Intended to show:
 
 - The use of AngularFire with the Firebase emulator.
-- Testing Firestore security rules with the Firebase emulator.
-- The use of Cypress with Firestore and the Firebase emulator.
+- The use of Jest for testing the Firestore security rules with the Firebase emulator.
+- The use of Cypress to test an app using AngularFire with the Firebase emulator.
 
 # Setup
 
@@ -48,10 +52,18 @@ To generate a private key file for your service account:
 
 # Test security rules using emulator
 
-Run scripts
+Open `test-security-rules` folder in own copy of vscode. This allows the use of the Jest(vscode-jest) extension when developing tests.
+
+Or from this project run scripts
 
 - `emulators:start`
 - `test - test-security-rules`
+
+# Testing Security Rules with Jest
+
+- Open the `test-security-rules` folder in another instance of vscode. This will allow the use of the `vscode-jest` extension for working with the tests.
+- Initially Jest will be stopped. `View > Command Pallete > Jest: Start Ruuner` will start Jest.
+- The emulator needs to be running for the the tests to pass: `emulators:start`
 
 # Run app using emulator
 
@@ -141,12 +153,6 @@ Use Cypress.
 - [cypress](https://github.com/cypress-io/cypress/releases)
 - [cypress-firebase](https://github.com/prescottprue/cypress-firebase/releases)
 - [Typescript](https://github.com/microsoft/TypeScript/releases)
-
-# Testing Security Rules with Jest
-
-- Open the `test-security-rules` folder in another instance of vscode. This will allow the use of the `vscode-jest` extension for working with the tests.
-- Initially Jest will be stopped. `View > Command Pallete > Jest: Start Ruuner` will start Jest.
-- The emulator needs to be running for the the tests to pass: `emulators:start`
 
 # Notes
 
