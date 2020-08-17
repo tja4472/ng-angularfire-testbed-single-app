@@ -149,6 +149,7 @@ Use Cypress.
 - [@angular-builders/jest](https://github.com/just-jeb/angular-builders/blob/master/packages/jest/CHANGELOG.md)
 - [@firebase/testing](https://github.com/firebase/firebase-js-sdk/blob/master/packages/testing/CHANGELOG.md)
 - [firebase](https://firebase.google.com/support/release-notes/js)
+- [firebase-admin](https://github.com/firebase/firebase-admin-node/releases)
 - [firebase-tools](https://github.com/firebase/firebase-tools/releases)
 - [cypress](https://github.com/cypress-io/cypress/releases)
 - [cypress-firebase](https://github.com/prescottprue/cypress-firebase/releases)
