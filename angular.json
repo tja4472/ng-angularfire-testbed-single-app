@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [ "@firebase/app", "@firebase/auth", "@firebase/firestore", "firebase/app"],              
             "outputPath": "dist/ng-angularfire-testbed",
             "index": "src/index.html",
             "main": "src/main.ts",
