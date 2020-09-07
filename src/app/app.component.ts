@@ -21,8 +21,8 @@ export interface Item {
 export class AppComponent {
   title = 'ng-angularfire-testbed';
 
-  private itemsCollection: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>;
+  private itemsCollection: AngularFirestoreCollection<Item> | undefined;
+  items: Observable<Item[]> | undefined;
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
 
@@ -33,6 +33,11 @@ export class AppComponent {
 
   addItem() {
     console.log('## addItem');
+
+    if (this.itemsCollection === undefined) {
+      return;
+    }
+
     const item: Item = {
       id: 'Added using add',
       name: Math.random().toString(),
@@ -48,6 +53,11 @@ export class AppComponent {
 
   addItemSet() {
     console.log('## addItemSet');
+
+    if (this.itemsCollection === undefined) {
+      return;
+    }
+
     // Persist a document id
     const id = this.afs.createId();
     const item: Item = { id, name: Math.random().toString() };
