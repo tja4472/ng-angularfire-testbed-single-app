@@ -15,17 +15,16 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     /* Additional */
     "types": ["jest"],
     "paths": {
-        "@app/*": ["src/app/*"]
-      },      
+      "@app/*": ["src/app/*"]
+    }
   },
-  "include": ["src/**/*.spec.ts"],  
+  // "include": ["src/**/*.ts"]
+  // Required by vscode to see module.ts and spec.ts files.
+  "include": ["src/**/*.ts"],
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
