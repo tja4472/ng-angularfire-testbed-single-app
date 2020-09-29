@@ -14,6 +14,7 @@
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
+    "test:emulator": "ng test --configPath=jest-emulator.config.js",     
     "lint": "ng lint",
     "lint-fix": "ng lint --fix",
     "e2e": "ng e2e",
