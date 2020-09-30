@@ -8,6 +8,15 @@ import { of } from 'rxjs';
 
 import { AppComponent } from './app.component';
 
+import { environment } from '../environments/environment.emulator';
+
+/*
+Don't use import { AppFirebaseModule } from './app-firebase.module' as jest does not 
+know about angular environment file handling.
+
+
+*/
+
 describe('AppComponent(emulator)', () => {
   beforeEach(async () => {
     const authStub: any = {
@@ -26,16 +35,19 @@ describe('AppComponent(emulator)', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent],
+
       providers: [
         { provide: AngularFireAuth, useValue: authMock },
         { provide: AngularFirestore, useValue: storeMock },
       ],
+
     }).compileComponents();
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    console.log('l>', environment.useEmulator);
     expect(app).toBeTruthy();
   });
 
