@@ -36,7 +36,7 @@ Cypress.Commands.add('getBySelLike', (selector, ...args) => {
 import { firebaseConfig } from './firebase/firebase-config';
 
 import { attachCustomCommands } from 'cypress-firebase/lib';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore';
@@ -47,11 +47,14 @@ const firestoreEmulatorHost = Cypress.env('FIRESTORE_EMULATOR_HOST');
 
 if (firestoreEmulatorHost) {
   console.log('firestoreEmulatorHost');
+/*
   firebase.firestore().settings({
     host: 'localhost:8080',
     ssl: false,
     // experimentalForceLongPolling: true,
   });
+*/
+  firebase.firestore().useEmulator('localhost', 8080);
 }
 
 /*
