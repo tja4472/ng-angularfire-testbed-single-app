@@ -2,6 +2,16 @@
 
 - Testing data service.
 
+# Firebase CLI
+- Install Firebase CLI. `npm install -g firebase-tools`
+
+firebase init
+
+Firestore and Emulators
+
+Authentication, Functions, Firestore,& Hosting emulators.
+
+
 # Description
 
 Intended to show:
