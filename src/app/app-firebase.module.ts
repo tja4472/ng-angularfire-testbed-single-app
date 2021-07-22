@@ -9,9 +9,11 @@ import {
 } from '@angular/fire/analytics';
 */
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
 import {
   AngularFirestoreModule,
   SETTINGS as FIRESTORE_SETTINGS,
+  USE_EMULATOR as USE_FIRESTORE_EMULATOR,
 } from '@angular/fire/firestore';
 // import { AngularFirePerformanceModule } from '@angular/fire/performance';
 
@@ -41,14 +43,15 @@ const shouldUseEmulator = () => {
   providers: [
     {
       provide: FIRESTORE_SETTINGS,
-      useFactory: () =>
-        shouldUseEmulator()
-          ? {
-              host: 'localhost:8080',
-              ssl: false,
-              experimentalForceLongPolling: true,
-            }
-          : {},
+      useValue: { experimentalAutoDetectLongPolling: true },
+    },
+    {
+      provide: USE_AUTH_EMULATOR,
+      useValue: shouldUseEmulator() ? ['localhost', 9099] : undefined,
+    },
+    {
+      provide: USE_FIRESTORE_EMULATOR,
+      useValue: shouldUseEmulator() ? ['localhost', 8080] : undefined,
     },
   ],
 })

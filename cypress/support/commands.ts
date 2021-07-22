@@ -62,5 +62,10 @@ if (fbInstance) {
   (window as any).fbInstance = fbInstance;
 }
 */
+const authEmulatorHost = Cypress.env('FIREBASE_AUTH_EMULATOR_HOST')
+if (authEmulatorHost) {
+  firebase.auth().useEmulator(`http://${authEmulatorHost}/`);
+  console.debug(`Using Auth emulator: http://${authEmulatorHost}/`);
+}
 
 attachCustomCommands({ Cypress, cy, firebase });

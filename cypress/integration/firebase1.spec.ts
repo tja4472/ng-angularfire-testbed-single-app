@@ -40,13 +40,13 @@ describe('login and logout', () => {
     cy.callFirestore('delete', 'items', opts);
     cy.visit('/');
     getGreeting().contains('Welcome to');
-    cy.getBySel('hello-text').should('not.be.visible');
+    // cy.getBySel('hello-text').should('not.be.visible');
     cy.getBySel('sign-in-text')
       .should('be.visible')
       .and('contain', 'Please sign in');
     login();
     // getHello().contains('Hello xY');
-    cy.getBySel('hello-text').should('contain', 'Hello xY');
+    cy.getBySel('hello-text').should('contain', 'Hello UID-1');
     cy.contains('Start listening to Firestore').click();
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.getBySel('list-item', { timeout: 10000 })
