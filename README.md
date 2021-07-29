@@ -1,4 +1,49 @@
+## Table of Contents
+
+- Project setup
+  - Root folder
+    - [.firebaserc](#.firebaserc)
+    - [serviceAccount-demo.json](#serviceAccount-demojson)
+    - [serviceAccount-real.json](#serviceAccount-realjson)
+
+.firebaserc
+serviceAccount-demo.json
+serviceAccount-real.json
+
+src > app > firebase
+
+firebase-config-dev.ts
+firebase-config-emulator-real.ts
+firebase-config-prod.ts
+
+cypress > support > firebase
+
+firebase-config-dev.ts
+
+### .firebaserc
+
+```json
+{
+  "projects": {
+    "default": "firebase project"
+  }
+}
+```
+
+### serviceAccount-demo.json
+
+Service account file from Firebase. Edit `project_id`.
+
+```sh
+"project_id": "demo-1",
+```
+
+### serviceAccount-real.json
+
+Service account file from Firebase.
+
 # Todo
+
 test
 https://firebase.google.com/docs/emulator-suite/connect_auth
 
@@ -41,6 +86,8 @@ Intended to show:
 - The use of AngularFire with the Firebase emulator.
 - The use of Jest for testing the Firestore security rules with the Firebase emulator.
 - The use of Cypress to test an app using AngularFire with the Firebase emulator.
+
+## DDDD
 
 # Setup
 
