@@ -12,7 +12,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {           
+          "options": {
             "outputPath": "dist/ng-angularfire-testbed",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -63,6 +63,22 @@
                   "with": "src/environments/environment.emulator.ts"
                 }
               ]
+            },
+            "emulator-demo": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.emulator-demo.ts"
+                }
+              ]
+            },
+            "emulator-real": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.emulator-real.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -78,6 +94,12 @@
             },
             "emulator": {
               "browserTarget": "ng-angularfire-testbed:build:emulator"
+            },
+            "emulator-demo": {
+              "browserTarget": "ng-angularfire-testbed:build:emulator-demo"
+            },
+            "emulator-real": {
+              "browserTarget": "ng-angularfire-testbed:build:emulator-real"
             }
           }
         },
@@ -89,8 +111,7 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {
-          }
+          "options": {}
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

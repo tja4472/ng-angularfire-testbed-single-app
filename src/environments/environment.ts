@@ -1,4 +1,4 @@
-import { firebaseConfig } from '@app/firebase/firebase-config';
+import { firebaseConfigDev } from '@app/firebase/firebase-config-dev';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -7,7 +7,7 @@ import { firebaseConfig } from '@app/firebase/firebase-config';
 export const environment = {
   appCode: 'ngrx-auth-module',
   production: false,
-  firebase: firebaseConfig,
+  firebase: firebaseConfigDev,
   useEmulator: false,
 };
 

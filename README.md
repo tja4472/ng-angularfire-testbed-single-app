@@ -1,8 +1,31 @@
 # Todo
 
+https://firebase.google.com/docs/emulator-suite/connect_auth
+
+There are 3 scenarios when testing with Cypress:
+
+Run npm scripts:
+
+1. Using real Firebase projects.
+
+   1. start
+   1. cypress:open
+
+1. Using real firebase projects with emulators.
+
+   1. emulators:start-real
+   1. start:start:emulator-real
+   1. cypress:emulate-real
+
+1. Using demo projects with emulators.
+   1. emulators:start-demo
+   1. start:emulator-demo
+   1. cypress:emulate-demo
+
 - Testing data service.
 
 # Firebase CLI
+
 - Install Firebase CLI. `npm install -g firebase-tools`
 
 firebase init
@@ -10,7 +33,6 @@ firebase init
 Firestore and Emulators
 
 Authentication, Functions, Firestore,& Hosting emulators.
-
 
 # Description
 

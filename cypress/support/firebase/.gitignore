@@ -2,3 +2,6 @@
 *
 */
 !.gitignore
+
+!firebase-config-emulator-demo.ts
+!firebase-config-interface.ts
