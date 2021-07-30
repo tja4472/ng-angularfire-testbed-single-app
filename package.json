@@ -11,7 +11,7 @@
     "start:emulator-real": "ng serve --configuration=emulator-real",
     "start:production": "ng serve --configuration=production",
     "--- cypress ---": "",
-    "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GOOGLE_APPLICATION_CREDENTIALS=\"serviceAccount-demo.json\" npm run cypress:open",
+    "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" npm run cypress:open",    
     "cypress:emulate-real": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" GOOGLE_APPLICATION_CREDENTIALS=\"serviceAccount-real.json\" npm run cypress:open",
     "cypress:open": "cypress open",
     "cypress:open-real": "cross-env GOOGLE_APPLICATION_CREDENTIALS=\"serviceAccount-real.json\" npm run cypress:open",

@@ -3,7 +3,6 @@
 - [Project setup](#Project-setup)
   - [Root folder](#Root-Folder)
     - [.firebaserc](#.firebaserc)
-    - [serviceAccount-demo.json](#serviceAccount-demojson)
     - [serviceAccount-real.json](#serviceAccount-realjson)
   - [App Firebase Folder](#App-Firebase-Folder)
     - [firebase-config-dev.ts](#firebase-config-dev.ts)
@@ -35,14 +34,6 @@ Create the following files.
     "default": "firebase project"
   }
 }
-```
-
-#### serviceAccount-demo.json
-
-Service account file from Firebase. Edit `project_id`.
-
-```sh
-"project_id": "demo-1",
 ```
 
 #### serviceAccount-real.json
@@ -85,6 +76,17 @@ export const firebaseConfigProd: FirebaseConfig = {
   messagingSenderId: 'XXXXXXXXX',
   appId: 'XXXXXXXXX',
 };
+```
+
+#### package.json
+
+Edit the `cypress:emulate-demo` script, `GCLOUD_PROJECT`, to use your demo project.
+
+```json
+  "scripts": {
+    "--- cypress ---": "",
+    "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" npm run cypress:open",
+  }
 ```
 
 # Todo
