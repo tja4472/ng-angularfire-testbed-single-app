@@ -1,8 +1,8 @@
-import { firebaseConfigEmulatorReal } from '@app/firebase/firebase-config-emulator-real';
+import { firebaseConfigDev } from '@app/firebase/firebase-config-dev';
 
 export const environment = {
-    appCode: 'ngrx-auth-module',
-    production: false,
-    firebase: firebaseConfigEmulatorReal,
-    useEmulator: true,
+  appCode: 'ngrx-auth-module',
+  production: false,
+  firebase: firebaseConfigDev,
+  useEmulator: true,
 };

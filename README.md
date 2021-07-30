@@ -1,14 +1,13 @@
 ## Table of Contents
 
-- Project setup
-  - Root folder
+- [Project setup](#Project-setup)
+  - [Root folder](#Root-Folder)
     - [.firebaserc](#.firebaserc)
     - [serviceAccount-demo.json](#serviceAccount-demojson)
     - [serviceAccount-real.json](#serviceAccount-realjson)
-
-.firebaserc
-serviceAccount-demo.json
-serviceAccount-real.json
+  - [App Firebase Folder](#App-Firebase-Folder)
+    - [firebase-config-dev.ts](#firebase-config-dev.ts)
+    - [firebase-config-prod.ts](#firebase-config-prod.ts)
 
 src > app > firebase
 
@@ -20,7 +19,15 @@ cypress > support > firebase
 
 firebase-config-dev.ts
 
-### .firebaserc
+## Project setup
+
+You need Java to run the emulators.
+
+### Root Folder
+
+Create the following files.
+
+#### .firebaserc
 
 ```json
 {
@@ -30,7 +37,7 @@ firebase-config-dev.ts
 }
 ```
 
-### serviceAccount-demo.json
+#### serviceAccount-demo.json
 
 Service account file from Firebase. Edit `project_id`.
 
@@ -38,9 +45,47 @@ Service account file from Firebase. Edit `project_id`.
 "project_id": "demo-1",
 ```
 
-### serviceAccount-real.json
+#### serviceAccount-real.json
 
 Service account file from Firebase.
+
+### App Firebase Folder
+
+src > app > firebase
+
+#### firebase-config-dev.ts
+
+```ts
+// This file should be added to .gitignore.
+import { FirebaseConfig } from './firebase-config-interface';
+
+export const firebaseConfigDev: FirebaseConfig = {
+  apiKey: 'XXXXXXXXX',
+  authDomain: 'XXXXXXXXX',
+  databaseURL: 'XXXXXXXXX',
+  projectId: 'XXXXXXXXX',
+  storageBucket: 'XXXXXXXXX',
+  messagingSenderId: 'XXXXXXXXX',
+  appId: 'XXXXXXXXX',
+};
+```
+
+#### firebase-config-prod.ts
+
+```ts
+// This file should be added to .gitignore.
+import { FirebaseConfig } from './firebase-config-interface';
+
+export const firebaseConfigProd: FirebaseConfig = {
+  apiKey: 'XXXXXXXXX',
+  authDomain: 'XXXXXXXXX',
+  databaseURL: 'XXXXXXXXX',
+  projectId: 'XXXXXXXXX',
+  storageBucket: 'XXXXXXXXX',
+  messagingSenderId: 'XXXXXXXXX',
+  appId: 'XXXXXXXXX',
+};
+```
 
 # Todo
 
