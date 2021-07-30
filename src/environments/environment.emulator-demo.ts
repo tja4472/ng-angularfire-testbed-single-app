@@ -1,8 +1,12 @@
 import { firebaseConfigEmulatorDemo } from '@app/firebase/firebase-config-emulator-demo';
 
-export const environment = {
-    appCode: 'ngrx-auth-module',
-    production: false,
-    firebase: firebaseConfigEmulatorDemo,
-    useEmulator: true,
+import { Environment } from './environment-types';
+
+export const environment: Environment = {
+  appCode: 'ngrx-auth-module',
+  production: false,
+  firebase: {
+    config: firebaseConfigEmulatorDemo,
+    emulators: { auth: ['localhost', 9099], firestore: ['localhost', 8080] },
+  },
 };

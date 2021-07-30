@@ -17,13 +17,7 @@ import {
 } from '@angular/fire/firestore';
 // import { AngularFirePerformanceModule } from '@angular/fire/performance';
 
-import { environment } from '../environments/environment';
-
-// const shouldUseEmulator = () => true;
-const shouldUseEmulator = () => {
-  console.log('environment.useEmulator>', environment.useEmulator);
-  return environment.useEmulator;
-};
+import { environment} from '../environments/environment';
 
 // experimentalForceLongPolling required for Cypress testing.
 // Cannot connect to Firestore emulator
@@ -31,7 +25,7 @@ const shouldUseEmulator = () => {
 
 @NgModule({
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase.config),
     // AngularFirestoreModule.enablePersistence(),
     // AngularFireAnalyticsModule,
     AngularFireAuthModule,
@@ -47,11 +41,11 @@ const shouldUseEmulator = () => {
     },
     {
       provide: USE_AUTH_EMULATOR,
-      useValue: shouldUseEmulator() ? ['localhost', 9099] : undefined,
+      useValue: environment.firebase.emulators?.auth,
     },
     {
       provide: USE_FIRESTORE_EMULATOR,
-      useValue: shouldUseEmulator() ? ['localhost', 8080] : undefined,
+      useValue: environment.firebase.emulators?.firestore,
     },
   ],
 })
