@@ -9,13 +9,12 @@
       - [firebase-config-prod.ts](#firebase-config-prodts)
   - [Cypress](#cypress)
     - [Root Folder](#root-folder-1)
+      - [package.json](#packagejson-1)
+        - [cypress:emulate-demo](#cypressemulate-demo)
+        - [cypress:emulate-real](#cypressemulate-real)
       - [serviceAccount-real.json](#serviceaccount-realjson)
     - [Firebase folder](#firebase-folder-1)
       - [firebase-config-dev.ts](#firebase-config-devts-1)
-    - [Root Folder](#root-folder-2)
-      - [package.json](#packagejson-1)
-        - [`cypress:emulate-demo`](#cypressemulate-demo)
-        - [cypress:emulate-real](#cypressemulate-real)
 - [\***\* IGNORE BELOW HERE \*\***](#-ignore-below-here-)
 - [Todo](#todo)
 - [Firebase CLI](#firebase-cli)
@@ -124,6 +123,30 @@ export const firebaseConfigProd: FirebaseConfig = {
 
 ### Root Folder
 
+#### package.json
+
+Edit the following scripts:
+
+##### cypress:emulate-demo
+
+Edit `GCLOUD_PROJECT` to use your demo project.
+
+```json
+"scripts": {
+    "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" npm run cypress:open",
+}
+```
+
+##### cypress:emulate-real
+
+Edit `GCLOUD_PROJECT` to use your real project.
+
+```json
+"scripts": {
+     "cypress:emulate-real": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" GCLOUD_PROJECT=\"emulators-codelab-a5a89\" npm run cypress:open",
+}
+```
+
 #### serviceAccount-real.json
 
 Service account file from Firebase.
@@ -147,32 +170,6 @@ export const firebaseConfigDev: FirebaseConfig = {
   messagingSenderId: 'XXXXXXXXX',
   appId: 'XXXXXXXXX',
 };
-```
-
-### Root Folder
-
-#### package.json
-
-Edit the following scripts:
-
-##### `cypress:emulate-demo`
-
-Edit `GCLOUD_PROJECT` to use your demo project.
-
-```json
-  "scripts": {
-    "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" npm run cypress:open",
-  }
-```
-
-##### cypress:emulate-real
-
-Edit `GCLOUD_PROJECT` to use your real project.
-
-```json
-"scripts": {
-     "cypress:emulate-real": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" GCLOUD_PROJECT=\"emulators-codelab-a5a89\" npm run cypress:open",
-}
 ```
 
 # \***\* IGNORE BELOW HERE \*\***
