@@ -1,26 +1,58 @@
-## Table of Contents
+- [Setup](#setup)
+  - [App](#app)
+    - [Root Folder](#root-folder)
+      - [.firebaserc](#firebaserc)
+      - [package.json](#packagejson)
+        - [emulators:start-demo](#emulatorsstart-demo)
+    - [Firebase Folder](#firebase-folder)
+      - [firebase-config-dev.ts](#firebase-config-devts)
+      - [firebase-config-prod.ts](#firebase-config-prodts)
+  - [Cypress](#cypress)
+    - [Root Folder](#root-folder-1)
+      - [serviceAccount-real.json](#serviceaccount-realjson)
+    - [Firebase folder](#firebase-folder-1)
+      - [firebase-config-dev.ts](#firebase-config-devts-1)
+    - [Root Folder](#root-folder-2)
+      - [package.json](#packagejson-1)
+        - [`cypress:emulate-demo`](#cypressemulate-demo)
+        - [cypress:emulate-real](#cypressemulate-real)
+- [\***\* IGNORE BELOW HERE \*\***](#-ignore-below-here-)
+- [Todo](#todo)
+- [Firebase CLI](#firebase-cli)
+- [Description](#description)
+  - [DDDD](#dddd)
+- [Setup](#setup-1)
+  - [`serviceAccount.json`](#serviceaccountjson)
+  - [`.firebaserc`](#firebaserc-1)
+  - [`test-security-rules\firebase-info.ts`](#test-security-rulesfirebase-infots)
+  - [`src\app\firebase\firebase-config.ts`](#srcappfirebasefirebase-configts)
+  - [- `cypress\support\firebase\firebase-config.ts`](#--cypresssupportfirebasefirebase-configts)
+- [Test security rules using emulator](#test-security-rules-using-emulator)
+- [Testing Security Rules with Jest](#testing-security-rules-with-jest)
+- [Run app using emulator](#run-app-using-emulator)
+- [Run Cypress tests with emulator](#run-cypress-tests-with-emulator)
+  - [Run unit tests with emulator?](#run-unit-tests-with-emulator)
+- [Scripts](#scripts)
+  - [Scripts](#scripts-1)
+    - [test-firestore-rules](#test-firestore-rules)
+    - [test-firestore-rules:emulator](#test-firestore-rulesemulator)
+  - [blah](#blah)
+- [References](#references)
+- [Release Notes](#release-notes)
+- [Notes](#notes)
+- [aaa](#aaa)
+  - [Development server](#development-server)
+  - [Code scaffolding](#code-scaffolding)
+  - [Build](#build)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+  - [Further help](#further-help)
 
-- [Project setup](#Project-setup)
-  - [Root folder](#Root-Folder)
-    - [.firebaserc](#.firebaserc)
-    - [serviceAccount-real.json](#serviceAccount-realjson)
-  - [App Firebase Folder](#App-Firebase-Folder)
-    - [firebase-config-dev.ts](#firebase-config-dev.ts)
-    - [firebase-config-prod.ts](#firebase-config-prod.ts)
-
-src > app > firebase
-
-firebase-config-dev.ts
-firebase-config-emulator-real.ts
-firebase-config-prod.ts
-
-cypress > support > firebase
-
-firebase-config-dev.ts
-
-## Project setup
+# Setup
 
 You need Java to run the emulators.
+
+## App
 
 ### Root Folder
 
@@ -36,11 +68,21 @@ Create the following files.
 }
 ```
 
-#### serviceAccount-real.json
+#### package.json
 
-Service account file from Firebase.
+Edit the following scripts:
 
-### App Firebase Folder
+##### emulators:start-demo
+
+Edit `--project` to use your demo project.
+
+```json
+"scripts": {
+    "emulators:start-demo": "firebase emulators:start --only firestore,auth --project demo-1",
+ }
+```
+
+### Firebase Folder
 
 src > app > firebase
 
@@ -78,16 +120,62 @@ export const firebaseConfigProd: FirebaseConfig = {
 };
 ```
 
+## Cypress
+
+### Root Folder
+
+#### serviceAccount-real.json
+
+Service account file from Firebase.
+
+### Firebase folder
+
+cypress > support > firebase
+
+#### firebase-config-dev.ts
+
+```ts
+// This file should be added to .gitignore.
+import { FirebaseConfig } from './firebase-config-interface';
+
+export const firebaseConfigDev: FirebaseConfig = {
+  apiKey: 'XXXXXXXXX',
+  authDomain: 'XXXXXXXXX',
+  databaseURL: 'XXXXXXXXX',
+  projectId: 'XXXXXXXXX',
+  storageBucket: 'XXXXXXXXX',
+  messagingSenderId: 'XXXXXXXXX',
+  appId: 'XXXXXXXXX',
+};
+```
+
+### Root Folder
+
 #### package.json
 
-Edit the `cypress:emulate-demo` script, `GCLOUD_PROJECT`, to use your demo project.
+Edit the following scripts:
+
+##### `cypress:emulate-demo`
+
+Edit `GCLOUD_PROJECT` to use your demo project.
 
 ```json
   "scripts": {
-    "--- cypress ---": "",
     "cypress:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" npm run cypress:open",
   }
 ```
+
+##### cypress:emulate-real
+
+Edit `GCLOUD_PROJECT` to use your real project.
+
+```json
+"scripts": {
+     "cypress:emulate-real": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" GCLOUD_PROJECT=\"emulators-codelab-a5a89\" npm run cypress:open",
+}
+```
+
+# \***\* IGNORE BELOW HERE \*\***
 
 # Todo
 
