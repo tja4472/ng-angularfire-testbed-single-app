@@ -3,6 +3,7 @@ import { login, logout } from '../support/utils';
 
 describe('test', () => {
   before(() => {
+    // runs once before the first test in this block
     login();
     // cy.wait(1000);
     // createFirebase();
@@ -10,6 +11,7 @@ describe('test', () => {
   });
 
   after(() => {
+    // runs once after the last test in this block
     logout();
     // removeOldFirebaseData();
   });
