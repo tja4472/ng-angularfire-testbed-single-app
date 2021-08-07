@@ -50,6 +50,7 @@
 # Setup
 
 You need Java to run the emulators.
+wsl2 test edit
 
 ## App
 
