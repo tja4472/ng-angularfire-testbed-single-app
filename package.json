@@ -42,7 +42,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/jest": "10.0.1",
+    "@angular-builders/jest": "12.1.2",
     "@angular-devkit/build-angular": "12.2.0",
     "@angular/cli": "12.2.0",
     "@angular/compiler-cli": "12.2.0",
@@ -58,7 +58,7 @@
     "firebase-tools": "9.16.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "jest": "26.6.3",
+    "jest": "27.2.3",
     "prettier": "2.3.2",
     "protractor": "7.0.0",
     "ts-node": "8.10.2",
