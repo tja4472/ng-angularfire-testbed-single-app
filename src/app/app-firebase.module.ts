@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire/compat';
 /*
 import {
   AngularFireAnalyticsModule,
   ScreenTrackingService,
   UserTrackingService,
-} from '@angular/fire/analytics';
+} from '@angular/fire/compat/analytics';
 */
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import {
   AngularFirestoreModule,
   SETTINGS as FIRESTORE_SETTINGS,
   USE_EMULATOR as USE_FIRESTORE_EMULATOR,
-} from '@angular/fire/firestore';
-// import { AngularFirePerformanceModule } from '@angular/fire/performance';
+} from '@angular/fire/compat/firestore';
+// import { AngularFirePerformanceModule } from '@angular/fire/compat/performance';
 
 import { environment} from '../environments/environment';
 

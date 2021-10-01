@@ -5,7 +5,7 @@ type UseEmulatorArguments = [string, number];
 type Firebase = {
   config: FirebaseConfig;
   emulators?: {
-    auth: UseEmulatorArguments;
+    auth: [string];
     firestore: UseEmulatorArguments;
   };
 };

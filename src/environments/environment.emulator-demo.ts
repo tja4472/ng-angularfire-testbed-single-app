@@ -7,6 +7,6 @@ export const environment: Environment = {
   production: false,
   firebase: {
     config: firebaseConfigEmulatorDemo,
-    emulators: { auth: ['localhost', 9099], firestore: ['localhost', 8080] },
+    emulators: { auth: ['http://localhost:9099'], firestore: ['localhost', 8080] },
   },
 };

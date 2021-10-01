@@ -37,10 +37,10 @@ import { firebaseConfigDev } from './firebase/firebase-config-dev';
 import { FirebaseConfig } from './firebase/firebase-config-interface';
 import { firebaseConfigEmulatorDemo } from './firebase/firebase-config-emulator-demo';
 import { attachCustomCommands } from 'cypress-firebase/lib';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-import 'firebase/firestore';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/database';
+import 'firebase/compat/firestore';
 
 const cypressUseDemoProject = Cypress.env('USE_DEMO_PROJECT');
 console.log('cypressUseDemoProject: ', cypressUseDemoProject);
