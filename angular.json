@@ -109,10 +109,6 @@
             "browserTarget": "ng-angularfire-testbed:build"
           }
         },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {}
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
