@@ -1,3 +1,7 @@
+/**
+ * @group emulator-required
+ */
+
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -40,7 +44,6 @@ describe('AppComponent(emulator)', () => {
         { provide: AngularFireAuth, useValue: authMock },
         { provide: AngularFirestore, useValue: storeMock },
       ],
-
     }).compileComponents();
   });
 
