@@ -1,4 +1,4 @@
 {
-    "jest.autoEnable": false,
-    "jest.enableInlineErrorMessages": true
+  "jest.autoEnable": false,
+  "jest.enableInlineErrorMessages": true
 }

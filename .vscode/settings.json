@@ -1,5 +1,12 @@
 {
-    "jest.pathToJest": "npm test --",
-    "jest.autoEnable": false,    
-    "jest.enableInlineErrorMessages": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "eslint.options": {
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "es6": true
+    }
+  }
 }

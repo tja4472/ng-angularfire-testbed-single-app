@@ -17,7 +17,7 @@ import {
 } from '@angular/fire/compat/firestore';
 // import { AngularFirePerformanceModule } from '@angular/fire/compat/performance';
 
-import { environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 // experimentalForceLongPolling required for Cypress testing.
 // Cannot connect to Firestore emulator
