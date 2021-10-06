@@ -21,6 +21,10 @@
       "@app/*": ["src/app/*"]
     }
   },
+  // Required for jest to work with cypress
+  "include": ["src/*.ts"],
+  "exclude": ["src/*.spec.ts"],
+  //
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
