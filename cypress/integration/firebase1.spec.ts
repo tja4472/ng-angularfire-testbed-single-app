@@ -7,6 +7,8 @@ describe('test', () => {
     login();
     // cy.wait(1000);
     // createFirebase();
+    const opts = { recursive: true };
+    cy.callFirestore("delete", "demo-1", opts);    
     cy.callFirestore('add', 'items', { name: 'XXXX' });
   });
 
