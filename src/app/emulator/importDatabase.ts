@@ -82,32 +82,6 @@ function omit(key: any, obj: any) {
   return rest;
 }
 
-// Testing types
-const doc1: FirestoreDocument = {
-  f1: <number>1,
-};
-
-const d2: FirestoreDocument = {
-  f1: 1,
-  f2: 'a',
-  col1: <FirestoreCollection>{},
-  col2: <FirestoreCollection>{
-    doc1: {
-      f1: 1,
-      f2: 'a',
-    },
-    doc2: {
-      f1: 1,
-      f2: 'a',
-    },
-  },
-};
-
-const y9: Collection<{ f1: string; f2: number }> = {
-  a: { f1: 'a', f2: 1 },
-  b: { f1: 'a', f2: 1 },
-};
-
 // function database(array of col) returns Database
 
 //   col1: <FirestoreCollection>{},
@@ -222,6 +196,7 @@ async function processCollection(
         await processCollection(
           `${parentPath}/${documentPath}`,
           fieldName,
+          // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
           v as ImportCollection,
           saveFn
         );
