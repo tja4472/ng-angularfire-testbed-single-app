@@ -5,8 +5,10 @@ describe('test', () => {
   before(() => {
     // runs once before the first test in this block
     login();
-    // cy.wait(1000);
-    // createFirebase();
+  });
+
+  beforeEach(() => {
+    // runs before every test block
     const opts = { recursive: true };
     cy.callFirestore('delete', 'demo-1', opts).then(() => {
       cy.callFirestore('add', 'items', { name: 'XXXX' });
