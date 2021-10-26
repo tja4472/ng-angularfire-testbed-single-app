@@ -5,9 +5,16 @@ import { AppFirebaseModule } from './app-firebase.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ComponentAModule } from './component-a/component-a.module';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppFirebaseModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppFirebaseModule,
+    ComponentAModule,
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
