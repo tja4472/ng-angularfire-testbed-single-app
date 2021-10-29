@@ -2,6 +2,7 @@
 <p><a href="/">Home</a></p>
 <p><a href="/componentA">Component A</a></p>
 <p><a href="/componentB">Component B</a></p>
+<p><a href="/firestoreCompat">Firestore Compat</a></p>
 
 <div *ngIf="auth.user | async as user; else showLogin">
   <h1 data-test="hello-text">Hello {{ user.uid }}!</h1>

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { ComponentAModule } from './component-a';
 import { ComponentBModule } from './components/component-b';
+import { FirestoreCompatModule } from './components/firestore-compat';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ComponentBModule } from './components/component-b';
     AppFirebaseModule,
     ComponentAModule,
     ComponentBModule,
+    FirestoreCompatModule,    
     AppRoutingModule,
   ],
   providers: [],
