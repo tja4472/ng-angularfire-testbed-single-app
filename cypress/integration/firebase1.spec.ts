@@ -3,16 +3,17 @@ import { login, logout } from '../support/utils';
 
 describe('test', () => {
   before(() => {
-    // runs once before the first test in this block
+    // Runs once before the first test in this block
     login();
   });
 
   beforeEach(() => {
-    // runs before every test block
+    // Runs before every test block
+    // Remove items collection.
     const opts = { recursive: true };
-    cy.callFirestore('delete', 'demo-1', opts).then(() => {
-      cy.callFirestore('add', 'items', { name: 'XXXX' });
-    });
+    cy.callFirestore('delete', 'items', opts);
+    //
+    cy.callFirestore('add', 'items', { name: 'XXXX' });
   });
 
   after(() => {
@@ -42,9 +43,14 @@ describe('test', () => {
 });
 
 describe('login and logout', () => {
-  it('test ', () => {
+  beforeEach(() => {
+    // Runs before every test block
+    // Remove items collection.
     const opts = { recursive: true };
-    cy.callFirestore('delete', 'items', opts);
+    cy.callFirestore('delete', 'items', opts);    
+  });
+
+  it('test ', () => {
     cy.visit('/');
     getGreeting().contains('Welcome to');
     // cy.getBySel('hello-text').should('not.be.visible');
@@ -54,7 +60,7 @@ describe('login and logout', () => {
     login();
     // getHello().contains('Hello xY');
     cy.getBySel('hello-text').should('contain', 'Hello UID-1');
-    cy.contains('Start listening to Firestore').click();
+    cy.contains('Start listening to Firestore').click();  
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.getBySel('list-item', { timeout: 10000 })
       .should('be.visible')
