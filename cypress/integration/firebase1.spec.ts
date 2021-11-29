@@ -61,6 +61,7 @@ describe('login and logout', () => {
     // getHello().contains('Hello xY');
     cy.getBySel('hello-text').should('contain', 'Hello UID-1');
     cy.contains('Start listening to Firestore').click();
+    cy.getBySel('list').children().should('have.length', 0);    
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.getBySel('list-item', { timeout: 10000 })
       .should('be.visible')
