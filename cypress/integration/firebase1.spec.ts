@@ -47,7 +47,7 @@ describe('login and logout', () => {
     // Runs before every test block
     // Remove items collection.
     const opts = { recursive: true };
-    cy.callFirestore('delete', 'items', opts);    
+    cy.callFirestore('delete', 'items', opts);
   });
 
   it('test ', () => {
@@ -60,7 +60,7 @@ describe('login and logout', () => {
     login();
     // getHello().contains('Hello xY');
     cy.getBySel('hello-text').should('contain', 'Hello UID-1');
-    cy.contains('Start listening to Firestore').click();  
+    cy.contains('Start listening to Firestore').click();
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.getBySel('list-item', { timeout: 10000 })
       .should('be.visible')

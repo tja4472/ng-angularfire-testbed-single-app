@@ -8,9 +8,8 @@ describe('FirestoreCompatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FirestoreCompatComponent ]
-    })
-    .compileComponents();
+      declarations: [FirestoreCompatComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

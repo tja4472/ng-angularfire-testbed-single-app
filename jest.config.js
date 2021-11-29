@@ -17,8 +17,8 @@ module.exports = {
   moduleNameMapper: {
     '^@app/(.*)$': '<rootDir>/src/app/$1',
   },
-/*  
+  /*  
   // https://jestjs.io/docs/tutorial-react-native#transformignorepatterns-customization
   transformIgnorePatterns: ['node_modules/(?!(@angular/fire|@firebase|firebase|rxfire)/)'],
-*/  
+*/
 };

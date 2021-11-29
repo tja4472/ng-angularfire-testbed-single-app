@@ -16,7 +16,7 @@ import { FirestoreCompatModule } from './components/firestore-compat';
     AppFirebaseModule,
     ComponentAModule,
     ComponentBModule,
-    FirestoreCompatModule,    
+    FirestoreCompatModule,
     AppRoutingModule,
   ],
   providers: [],
