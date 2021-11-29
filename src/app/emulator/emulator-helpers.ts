@@ -16,15 +16,16 @@ export function clearDatabase(projectId: string) {
 
   return new Promise<number | undefined>((resolve, reject) => {
     const req = http.request(options, (res) => {
-      resolve(res.statusCode);
+      const statusCode = res.statusCode;
       res.destroy();
+      resolve(statusCode);
     });
-
-    req.end();
 
     req.on('error', (error) => {
       reject(error);
     });
+
+    req.end();
   });
 }
 
@@ -42,14 +43,15 @@ export function clearUserAccounts(projectId: string) {
 
   return new Promise<number | undefined>((resolve, reject) => {
     const req = http.request(options, (res) => {
-      resolve(res.statusCode);
+      const statusCode = res.statusCode;
       res.destroy();
+      resolve(statusCode);
     });
-
-    req.end();
 
     req.on('error', (error) => {
       reject(error);
     });
+
+    req.end();
   });
 }
