@@ -50,30 +50,23 @@ describe('login and logout', () => {
     cy.callFirestore('delete', 'items', opts);
   });
 
-  it('test ', () => {
+  it('(firebase1) test', () => {
     cy.visit('/');
     getGreeting().contains('Welcome to');
-    // cy.getBySel('hello-text').should('not.be.visible');
     cy.getBySel('sign-in-text')
       .should('be.visible')
       .and('contain', 'Please sign in');
     login();
-    // getHello().contains('Hello xY');
     cy.getBySel('hello-text').should('contain', 'Hello UID-1');
+    cy.getBySel('list-item').should('not.exist');
     cy.contains('Start listening to Firestore').click();
-    cy.getBySel('list').children().should('have.length', 0);    
+    cy.getBySel('list-item').should('not.exist');
     cy.callFirestore('add', 'items', { name: 'XXXX' });
-    cy.getBySel('list-item', { timeout: 10000 })
-      .should('be.visible')
-      .and('contain', 'XXXX');
-    // cy.contains('XXXX');
-    // cy.get('ul').children().should('have.length', 1);
+    cy.getBySel('list-item').contains('XXXX');
     cy.getBySel('list').children().should('have.length', 1);
-    // cy.get('add item').click();
-    // cy.get(':nth-child(6) > button')
     cy.contains('Add Item').click();
     cy.contains('Add Item Set').click();
-    cy.get('ul').children().should('have.length', 3);
+    cy.getBySel('list').children().should('have.length', 3);
     logout();
     cy.contains('Please sign in');
   });
