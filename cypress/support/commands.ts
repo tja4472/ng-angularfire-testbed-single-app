@@ -36,7 +36,7 @@ Cypress.Commands.add('getBySelLike', (selector, ...args) => {
 import { firebaseConfigDev } from './firebase/firebase-config-dev';
 import { FirebaseConfig } from './firebase/firebase-config-interface';
 import { firebaseConfigEmulatorDemo } from './firebase/firebase-config-emulator-demo';
-import { attachCustomCommands } from 'cypress-firebase/lib';
+import { attachCustomCommands } from 'cypress-firebase';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
