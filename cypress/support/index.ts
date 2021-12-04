@@ -13,3 +13,15 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 import './commands';
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      getBySel(dataTestAttribute: string, args?: any): Chainable<Element>;
+      getBySelLike(
+        dataTestPrefixAttribute: string,
+        args?: any
+      ): Chainable<Element>;
+    }
+  }
+}
