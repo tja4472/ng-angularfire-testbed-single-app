@@ -60,7 +60,7 @@ describe('login and logout', () => {
     cy.getBySel('hello-text').should('contain', 'Hello UID-1');
     cy.getBySel('list-item').should('not.exist');
     cy.contains('Start listening to Firestore').click();
-    cy.getBySel('list-item').should('not.exist');
+    cy.getBySel('list').should('exist');    
     cy.callFirestore('add', 'items', { name: 'XXXX' });
     cy.getBySel('list-item').contains('XXXX');
     cy.getBySel('list').children().should('have.length', 1);

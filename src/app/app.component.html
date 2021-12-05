@@ -18,12 +18,13 @@
   <div>
     <button (click)="addItemSet()">Add Item Set</button>
   </div>
-  <ul data-test="list">
+  <ul *ngIf="items | async; else notListening" data-test="list">
     <li data-test="list-item" *ngFor="let item of items | async">
       {{ item.name }}
     </li>
   </ul>
 </div>
+<ng-template #notListening> Not listening to Firestore </ng-template>
 <ng-template #showLogin>
   <p data-test="sign-in-text">Please sign in.</p>
   <button (click)="signInAnonymously()">Sign In Anonymously</button>
@@ -36,9 +37,6 @@
     <button (click)="signInWithEmailAndPasswordWithNonExistantUser()">
       Sign In With Email And Password With Non-ExistantUser
     </button>
-  </div>
-  <div>
-    <button (click)="addItem()">Add Item</button>
   </div>
 </ng-template>
 
