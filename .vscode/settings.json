@@ -1,12 +1,16 @@
 {
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
+  "editor.detectIndentation": false
+  /*
   "eslint.options": {
-    "parserOptions": {
-      "ecmaVersion": 2017
-    },
-    "env": {
-      "es6": true
+    "overrideConfig": {
+      "parserOptions": {
+        "ecmaVersion": 2017
+      },
+      "env": {
+        "es6": true
+      }
     }
   }
+  */
 }
