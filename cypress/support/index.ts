@@ -17,11 +17,14 @@ import './commands';
 declare global {
   namespace Cypress {
     interface Chainable {
-      getBySel(dataTestAttribute: string, args?: any): Chainable<Element>;
+      getBySel(
+        dataTestAttribute: string,
+        args?: any
+      ): Chainable<JQuery<HTMLElement>>;
       getBySelLike(
         dataTestPrefixAttribute: string,
         args?: any
-      ): Chainable<Element>;
+      ): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
