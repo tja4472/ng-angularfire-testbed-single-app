@@ -26,8 +26,8 @@
       "#libs/*":["libs/*/src/public-api.ts"]
     },
     // Required for angularfire to work with typescript 4.5.5
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
+    // "skipDefaultLibCheck": true,
+    // "skipLibCheck": true,
     // ^^^^   
   },
   // Required for jest to work with cypress
