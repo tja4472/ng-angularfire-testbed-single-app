@@ -8,6 +8,9 @@ import {
 
 import { Observable } from 'rxjs';
 
+import { libTextAB } from '#libs/my-library1';
+import { libText } from '#libs/my-library';
+
 export interface Item {
   id: string;
   name: string;
@@ -24,7 +27,10 @@ export class AppComponent {
   private itemsCollection: AngularFirestoreCollection<Item> | undefined;
   items: Observable<Item[]> | undefined;
 
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {}
+  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
+    console.log('XXXX>', libTextAB);
+    console.log('YYYY>', libText);
+  }
 
   startListening() {
     this.itemsCollection = this.afs.collection<Item>('items');

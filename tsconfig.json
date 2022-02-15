@@ -20,9 +20,10 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     "types": ["jest", "node"],
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@app/*": ["app/*"]
+      "@app/*": ["src/app/*"],
+      "#libs/*":["libs/*/src/public-api.ts"]
     },
     // Required for angularfire to work with typescript 4.5.5
     "skipDefaultLibCheck": true,
@@ -30,8 +31,8 @@
     // ^^^^   
   },
   // Required for jest to work with cypress
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.ts"],
+  "include": ["src/**/*", "libs/**/*"],
+  // "exclude": ["src/**/*.spec.ts"],
   //
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

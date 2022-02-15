@@ -54,6 +54,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 You need Java to run the emulators.
 wsl2 test edit
 
+```bash
+npx ng generate @schematics/angular:library --name=MyLibrary --skip-install --skip-package-json --skip-ts-config
+```
+
 ## App
 
 ### Root Folder
