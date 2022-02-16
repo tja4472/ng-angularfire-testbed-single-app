@@ -5,7 +5,7 @@ import { AppFirebaseModule } from '../../app-firebase.module';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-describe('ComponentAComponent', () => {
+describe.skip('ComponentAComponent', () => {
   let component: ComponentAComponent;
   let fixture: ComponentFixture<ComponentAComponent>;
 

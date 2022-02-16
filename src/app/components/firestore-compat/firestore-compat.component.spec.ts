@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirestoreCompatComponent } from './firestore-compat.component';
 
-describe('FirestoreCompatComponent', () => {
+describe.skip('FirestoreCompatComponent', () => {
   let component: FirestoreCompatComponent;
   let fixture: ComponentFixture<FirestoreCompatComponent>;
 
