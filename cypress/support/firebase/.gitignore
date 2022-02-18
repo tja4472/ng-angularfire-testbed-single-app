@@ -1,7 +1,9 @@
-# Ignore all files and folders except .gitignore
-*
-*/
-!.gitignore
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-!firebase-config-emulator-demo.ts
-!firebase-config-interface.ts
+# Ignore all files in this dir...
+*
+
+# ... except for these.
+!.gitignore
+!/firebase-config-emulator-demo.ts
+!/firebase-config-interface.ts

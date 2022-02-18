@@ -1,5 +1,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
+- [Setup after cloning](#setup-after-cloning)
+  - [serviceAccount-real.json](#serviceaccount-realjson)
+  - [.emulator/.firebaserc](#emulatorfirebaserc)
+  - [src/app/firebase/firebase-config-dev.ts](#srcappfirebasefirebase-config-devts)
+  - [src/app/firebase/firebase-config-prod.ts](#srcappfirebasefirebase-config-prodts)
+  - [cypress/support/firebase/firebase-config-dev.ts](#cypresssupportfirebasefirebase-config-devts)
 - [Setup](#setup)
   - [App](#app)
     - [Root Folder](#root-folder)
@@ -14,7 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
       - [package.json](#packagejson-1)
         - [cypress:emulate-demo](#cypressemulate-demo)
         - [cypress:emulate-real](#cypressemulate-real)
-      - [serviceAccount-real.json](#serviceaccount-realjson)
+      - [serviceAccount-real.json](#serviceaccount-realjson-1)
     - [Firebase folder](#firebase-folder-1)
       - [firebase-config-dev.ts](#firebase-config-devts-1)
 - [\***\* IGNORE BELOW HERE \*\***](#-ignore-below-here-)
@@ -48,6 +54,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - [Running unit tests](#running-unit-tests)
   - [Running end-to-end tests](#running-end-to-end-tests)
   - [Further help](#further-help)
+
+# Setup after cloning
+
+## serviceAccount-real.json
+
+Service account file from Firebase.
+
+## .emulator/.firebaserc
+
+## src/app/firebase/firebase-config-dev.ts
+
+## src/app/firebase/firebase-config-prod.ts
+
+## cypress/support/firebase/firebase-config-dev.ts
 
 # Setup
 
