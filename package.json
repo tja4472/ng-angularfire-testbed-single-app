@@ -2,9 +2,6 @@
   "name": "ng-angularfire-testbed",
   "version": "0.0.0",
   "scripts": {
-    "--- emulators ---": "",
-    "emulators:start-real": "cd .emulator && firebase emulators:start --only firestore,auth",
-    "emulators:start-demo": "cd .emulator && firebase emulators:start --only firestore,auth --project demo-1",
     "--- start ---": "",
     "start": "ng serve",
     "start:emulator-demo": "ng serve --configuration=emulator-demo",

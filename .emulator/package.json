@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start-real": "firebase emulators:start --only firestore,auth",
+    "start-demo": "firebase emulators:start --only firestore,auth --project demo-1"
+  }
+}
