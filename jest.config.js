@@ -17,6 +17,7 @@ module.exports = {
     '^@app\/(.*)$': '<rootDir>/src/app/$1',
     '^#libs\/(.*)$': '<rootDir>/libs/$1/src/public-api.ts'
   },
+  transformIgnorePatterns: ['node_modules/(?!(@angular/fire|@firebase|firebase|rxfire)/)'],
   /*  
   "+lib1":["projects/my-library1/src/public-api.ts"]
   // https://jestjs.io/docs/tutorial-react-native#transformignorepatterns-customization
