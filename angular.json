@@ -131,8 +131,9 @@
       }
     }
   },
-  "defaultProject": "ng-angularfire-testbed",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

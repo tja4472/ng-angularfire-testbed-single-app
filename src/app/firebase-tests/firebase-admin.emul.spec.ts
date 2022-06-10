@@ -15,6 +15,7 @@ import {
   SaveFunction,
 } from '../emulator/importDatabase';
 
+
 describe('firebase-admin', () => {
   beforeAll(() => {
     // The Firebase Admin SDK automatically connects to the Authentication emulator when the FIREBASE_AUTH_EMULATOR_HOST environment variable is set.
@@ -38,6 +39,7 @@ describe('firebase-admin', () => {
     // app.delete().catch(() => undefined);
   });
 
+  jest.retryTimes(3);
   it('auth - CreateUser', async () => {
     const userRecord = await admin.auth().createUser({
       uid: 'uid1',

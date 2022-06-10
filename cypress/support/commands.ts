@@ -33,7 +33,8 @@ Cypress.Commands.add('getBySelLike', (selector, ...args) => {
   return cy.get(`[data-test*=${selector}]`, ...args);
 });
 
-import { firebaseConfigDev } from './firebase/firebase-config-dev';
+// firebaseConfigDev is not available for GitHub actions.
+// import { firebaseConfigDev } from './firebase/firebase-config-dev';
 import { FirebaseConfig } from './firebase/firebase-config-interface';
 import { firebaseConfigEmulatorDemo } from './firebase/firebase-config-emulator-demo';
 import { attachCustomCommands } from 'cypress-firebase';
@@ -47,11 +48,15 @@ console.log('cypressUseDemoProject: ', cypressUseDemoProject);
 
 var firebaseConfig: FirebaseConfig;
 
+/*
 if (cypressUseDemoProject) {
   firebaseConfig = firebaseConfigEmulatorDemo;
 } else {
   firebaseConfig = firebaseConfigDev;
 }
+*/
+
+firebaseConfig = firebaseConfigEmulatorDemo;
 
 console.log('apiKey:', firebaseConfig.apiKey);
 firebase.initializeApp(firebaseConfig);

@@ -17,6 +17,14 @@ module.exports = {
     '^@app\/(.*)$': '<rootDir>/src/app/$1',
     '^#libs\/(.*)$': '<rootDir>/libs/$1/src/public-api.ts'
   },
+  resolver: '<rootDir>/jest-resolver.js',   
+  // https://github.com/thymikee/jest-preset-angular/issues/1625
+/*  
+  transformIgnorePatterns: [
+    "node_modules/(?!@angular|@firebase|firebase|@ngrx)",
+    // 'node_modules/(?!.*\\.mjs$)'
+  ],
+*/  
   /*  
   "+lib1":["projects/my-library1/src/public-api.ts"]
   // https://jestjs.io/docs/tutorial-react-native#transformignorepatterns-customization
