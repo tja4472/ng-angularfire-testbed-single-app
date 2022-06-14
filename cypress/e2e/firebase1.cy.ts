@@ -1,46 +1,55 @@
 import { getGreeting, getHello, navigateTo } from '../support/po';
 import { login, logout } from '../support/utils';
 
-describe('test', () => {
-  before(() => {
-    // Runs once before the first test in this block
-    login();
-  });
+describe(
+  'test',
+  {
+    retries: {
+      runMode: 3,
+      openMode: 3,
+    },
+  },
+  () => {
+    before(() => {
+      // Runs once before the first test in this block
+      login();
+    });
 
-  beforeEach(() => {
-    // Runs before every test block
-    // Remove items collection.
-    const opts = { recursive: true };
-    cy.callFirestore('delete', 'items', opts);
-    //
-    cy.callFirestore('add', 'items', { name: 'XXXX' });
-  });
+    beforeEach(() => {
+      // Runs before every test block
+      // Remove items collection.
+      const opts = { recursive: true };
+      cy.callFirestore('delete', 'items', opts);
+      //
+      cy.callFirestore('add', 'items', { name: 'XXXX' });
+    });
 
-  after(() => {
-    // runs once after the last test in this block
-    logout();
-    // removeOldFirebaseData();
-  });
+    after(() => {
+      // runs once after the last test in this block
+      logout();
+      // removeOldFirebaseData();
+    });
 
-  // beforeEach(navigateTo);
+    // beforeEach(navigateTo);
 
-  it('use page object - should display hello message', () => {
-    cy.visit('/');
-    getHello().contains('Hello');
-  });
+    it('use page object - should display hello message', () => {
+      cy.visit('/');
+      getHello().contains('Hello');
+    });
 
-  it('should display welcome message', () => {
-    cy.visit('/');
-    cy.getBySel('hello-text').should('contain', 'Hello');
-    cy.getBySel('start-listening-button').click();
-    // cy.getBySel('list-item', { timeout: 10000 }).should('contain', 'XXXX');
-    cy.getBySel('list-item', { timeout: 10000 })
-      .should('be.visible')
-      .and('contain', 'XXXX');
-    cy.contains('Add Item').click();
-    cy.contains('Add Item Set').click();
-  });
-});
+    it('should display welcome message', () => {
+      cy.visit('/');
+      cy.getBySel('hello-text').should('contain', 'Hello');
+      cy.getBySel('start-listening-button').click();
+      // cy.getBySel('list-item', { timeout: 10000 }).should('contain', 'XXXX');
+      cy.getBySel('list-item', { timeout: 10000 })
+        .should('be.visible')
+        .and('contain', 'XXXX');
+      cy.contains('Add Item').click();
+      cy.contains('Add Item Set').click();
+    });
+  }
+);
 
 describe('login and logout', () => {
   beforeEach(() => {
