@@ -14,8 +14,14 @@ jobs:
       - run: npm ci --force    
       # - run: npm run start-demo
       #   working-directory: .emulator
-      # - run: npm run build
+      - run: npm run build
       #  working-directory: angularfire-compat-app       
+
+      - name: Cache firebase emulators
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}      
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
