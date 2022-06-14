@@ -22,7 +22,8 @@ jobs:
         with:
         # spec: cypress/e2e/0-my-tests/**    
         # build: npm run build
-            start: npm run zz 
+            start: npm run zz
+            wait-on: 'localhost:4400'
             command: npm run cypress:run:emulate-demo
             # we have already installed all dependencies above
             install: false              
