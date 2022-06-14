@@ -2,6 +2,7 @@
   "name": "ng-angularfire-testbed",
   "version": "0.0.0",
   "scripts": {
+    "zz": "npm run start-demo --prefix ./.emulator",
     "--- start ---": "",
     "start": "ng serve",
     "start:emulator-demo": "ng serve --configuration=emulator-demo",

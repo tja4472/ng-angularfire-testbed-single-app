@@ -1,0 +1,28 @@
+
+# https://github.com/cypress-io/github-action
+name: aa-test1
+on: [push]
+jobs:
+  cypress:
+    name: Cypress test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm ci    
+      # - run: npm run start-demo
+      #   working-directory: .emulator
+      # - run: npm run build
+      #  working-directory: angularfire-compat-app       
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+        # spec: cypress/e2e/0-my-tests/**    
+        # build: npm run build
+            start: npm run start-demo --prefix ./.emulator" 
+            command: npm run cypress:run:emulate-demo"
+            # we have already installed all dependencies above
+            install: false              
