@@ -16,17 +16,15 @@ jobs:
       #   working-directory: .emulator
       # - run: npm run build
       #  working-directory: angularfire-compat-app       
-
-      - run: |
-          npm run zz &
-          sleep 10
-          npm run test
       
       - name: Cache firebase emulators
         uses: actions/cache@v2
         with:
           path: ~/.cache/firebase/emulators
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}      
+
+      - name: Jest tests
+        run: npm run yy
 
       - name: Cypress run
         uses: cypress-io/github-action@v4

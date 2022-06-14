@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "zz": "npm run start-demo --prefix ./.emulator",
+    "yy": "firebase emulators:exec --only firestore,auth --project demo-1 'npm test'",
+
     "--- start ---": "",
     "start": "ng serve",
     "start:emulator-demo": "ng serve --configuration=emulator-demo",
