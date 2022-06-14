@@ -17,6 +17,9 @@ jobs:
       # - run: npm run build
       #  working-directory: angularfire-compat-app       
 
+      - name: Test
+      - run: npm run zz | npm run test
+      
       - name: Cache firebase emulators
         uses: actions/cache@v2
         with:
