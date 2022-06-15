@@ -48,3 +48,6 @@ Thumbs.db
 .firebaserc
 *.log
 **/serviceAccount*.json
+
+# Cypress
+/cypress/videos
