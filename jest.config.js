@@ -1,3 +1,4 @@
+// https://jestjs.io/docs/configuration
 module.exports = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
@@ -17,7 +18,8 @@ module.exports = {
     '^@app\/(.*)$': '<rootDir>/src/app/$1',
     '^#libs\/(.*)$': '<rootDir>/libs/$1/src/public-api.ts'
   },
-  resolver: '<rootDir>/jest-resolver.js',   
+  resolver: '<rootDir>/jest-resolver.js',  
+  testEnvironment: 'node' ,
   // https://github.com/thymikee/jest-preset-angular/issues/1625
 /*  
   transformIgnorePatterns: [

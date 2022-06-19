@@ -52,6 +52,7 @@
     "@angular-eslint/template-parser": "14.0.0-alpha.3",
     "@angular/cli": "14.0.2",
     "@angular/compiler-cli": "14.0.2",
+    "@firebase/rules-unit-testing": "2.0.2",      
     "@types/jest": "28.1.2",
     "@types/node": "16.11.41",
     "@typescript-eslint/eslint-plugin": "5.28.0",

@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ComponentBComponent } from './component-b.component';

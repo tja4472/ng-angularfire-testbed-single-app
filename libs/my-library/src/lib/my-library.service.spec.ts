@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { TestBed } from '@angular/core/testing';
 
 import { MyLibraryService } from './my-library.service';

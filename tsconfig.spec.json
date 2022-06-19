@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "outDir": "./out-tsc/spec",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   },
   "files": ["src/polyfills.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]

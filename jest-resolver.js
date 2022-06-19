@@ -32,11 +32,15 @@ module.exports = (path, options) => {
       if (
         // pkg.name === 'uuid' ||
         pkg.name === 'rxjs' ||
+        pkg.name === '@firebase/app' ||          
         pkg.name === '@firebase/auth' ||   
-        pkg.name === '@firebase/auth-compat' ||          
+        pkg.name === '@firebase/auth-compat' ||  
+        pkg.name === '@firebase/database' ||            
+        pkg.name === '@firebase/database-compat' ||                     
         pkg.name === '@firebase/firestore' ||      
         pkg.name === '@firebase/firestore-compat' ||               
-        pkg.name === '@firebase/messaging' ||               
+        pkg.name === '@firebase/messaging' ||  
+        pkg.name === '@firebase/storage' ||                     
         pkg.name === '@firebase/util' ||
         pkg.name === 'firebase'
       ) {
