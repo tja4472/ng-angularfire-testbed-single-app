@@ -22,13 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -61,14 +56,6 @@
               "sourceMap": true,
               "namedChunks": true
             },
-            "emulator": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.emulator.ts"
-                }
-              ]
-            },
             "emulator-demo": {
               "fileReplacements": [
                 {
@@ -76,6 +63,27 @@
                   "with": "src/environments/environment.emulator-demo.ts"
                 }
               ]
+            },
+            "emulator-demo-prod": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.emulator-demo-prod.ts"
+                }
+              ],
+              "outputHashing": "all"
             },
             "emulator-real": {
               "fileReplacements": [
@@ -97,11 +105,11 @@
             "development": {
               "browserTarget": "ng-angularfire-testbed:build:development"
             },
-            "emulator": {
-              "browserTarget": "ng-angularfire-testbed:build:emulator"
-            },
             "emulator-demo": {
               "browserTarget": "ng-angularfire-testbed:build:emulator-demo"
+            },
+            "emulator-demo-prod": {
+              "browserTarget": "ng-angularfire-testbed:build:emulator-demo-prod"
             },
             "emulator-real": {
               "browserTarget": "ng-angularfire-testbed:build:emulator-real"
@@ -122,13 +130,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         },
@@ -146,8 +149,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
