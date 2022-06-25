@@ -1,0 +1,105 @@
+# https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
+# https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# https://github.com/cypress-io/github-action
+name: tests
+
+on:
+  push:
+    branches:
+      - master
+      - update
+  pull_request:
+    branches: [master]
+
+env:
+  # default changed in node 17
+  # https://nodejs.org/dist/latest-v18.x/docs/api/cli.html#--dns-result-orderorder
+  NODE_OPTIONS: --dns-result-order=ipv4first
+
+jobs:
+  cypress-development:
+    name: Cypress test(development)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Cache firebase emulators
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run zz, npm run start:emulator-demo
+          wait-on: 'http://localhost:4400, http://localhost:4200'
+          command: npm run cypress:run:emulate-demo
+
+  cypress-production:
+    name: Cypress test(production)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Cache firebase emulators
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run zz, npm run start:emulator-demo-prod
+          wait-on: 'http://localhost:4400, http://localhost:4200'
+          command: npm run cypress:run:emulate-demo
+
+  jest:
+    name: Jest tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+
+      - name: Cache firebase emulators
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
+
+      - name: Jest tests
+        run: npm run yy
