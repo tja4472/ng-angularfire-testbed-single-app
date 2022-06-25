@@ -1,38 +1,59 @@
-
+# https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
+# https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 # https://github.com/cypress-io/github-action
-name: aa-test1
-on: [push]
+name: test1
+
+on:
+  push:
+    branches:
+      - master
+      - update
+  pull_request:
+    branches: [ master ]
+
 jobs:
   cypress:
     name: Cypress test
     runs-on: ubuntu-latest
+
+    strategy:    
+      matrix:
+        # For the moment don't test node 18.
+        # Uses ipv6 address for localhost instead of 127.0.0.1
+        node-version: [14.x, 16.x]
+        # node-version: [18]   
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - uses: actions/checkout@v3 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - run: npm ci  
+    - uses: actions/checkout@v3 
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci  
       # - run: npm run start-demo
       #   working-directory: .emulator
       # - run: npm run build
       #  working-directory: angularfire-compat-app       
       
-      - name: Cache firebase emulators
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/firebase/emulators
-          key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}      
+    - name: Cache firebase emulators
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/firebase/emulators
+        key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}      
 
-      - name: Jest tests
-        run: npm run yy
+    - name: Jest tests
+      run: npm run yy
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-        # spec: cypress/e2e/0-my-tests/**    
-        # build: npm run build
-            start: npm run zz, npm run start:emulator-demo
-            wait-on: 'http://localhost:4400, http://localhost:4200'
-            command: npm run cypress:run:emulate-demo
-            # we have already installed all dependencies above
-            install: false              
+    - name: Cypress tests
+      uses: cypress-io/github-action@v4
+      with:
+      # spec: cypress/e2e/0-my-tests/**    
+      # build: npm run build
+          # node 18 doesn't like localhost so use 127.0.0.1
+          start: npm run zz, npm run start:emulator-demo -- --host 127.0.0.1  
+          wait-on: 'http://localhost:4400, http://127.0.0.1:4200'
+          command: npm run cypress:run:emulate-demo
+          # we have already installed all dependencies above
+          ## install: false              
