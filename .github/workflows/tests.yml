@@ -43,7 +43,7 @@ jobs:
       - name: Cypress tests
         uses: cypress-io/github-action@v4
         with:
-          start: npm run zz, npm run start:emulator-demo
+          start: npm run emulator-demo-1, npm run start:emulator-demo
           wait-on: 'http://localhost:4400, http://localhost:4200'
           command: npm run cypress:run:emulate-demo
 
@@ -73,7 +73,7 @@ jobs:
       - name: Cypress tests
         uses: cypress-io/github-action@v4
         with:
-          start: npm run zz, npm run start:emulator-demo-prod
+          start: npm run emulator-demo-1, npm run start:emulator-demo-prod
           wait-on: 'http://localhost:4400, http://localhost:4200'
           command: npm run cypress:run:emulate-demo
 
@@ -102,4 +102,4 @@ jobs:
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
 
       - name: Jest tests
-        run: npm run yy
+        run: npm run emulator-exec-test
