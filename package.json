@@ -5,6 +5,8 @@
     "--- emulator ---": "",
     "emulator-demo-1": "firebase emulators:start --only firestore,auth --project demo-1",    
     "emulator-exec-test": "firebase emulators:exec --only firestore,auth --project demo-1 'npm test -- --forceExit'",
+    "emulator-export": "firebase emulators:export emulator-data  --project demo-1",
+    "emulator-import": "firebase emulators:start --only firestore,auth --project demo-1 --import emulator-data",      
     "--- start ---": "",
     "start": "ng serve",
     "start:emulator-demo": "ng serve --configuration=emulator-demo",
