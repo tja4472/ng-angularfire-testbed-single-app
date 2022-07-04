@@ -1,12 +1,23 @@
-import { defineConfig } from 'cypress'
+import admin from 'firebase-admin';
+import { defineConfig } from 'cypress';
+import { plugin as cypressFirebasePlugin } from 'cypress-firebase';
 
 export default defineConfig({
   defaultCommandTimeout: 10000,
   e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
+    supportFile: 'cypress/support/e2e.ts',
+
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.ts')(on, config)
+      cypressFirebasePlugin(on, config, admin);
+
+      // we can grab some process environment variables
+      // and stick it into config.env before returning the updated config
+      config.env = config.env || {};
+      config.env.FIRESTORE_EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST;
+      config.env.FIREBASE_AUTH_EMULATOR_HOST =
+        process.env.FIREBASE_AUTH_EMULATOR_HOST;
+
+      return config;
     },
     baseUrl: 'http://localhost:4200',
   },
@@ -14,4 +25,4 @@ export default defineConfig({
     runMode: 3,
     openMode: 2,
   },
-})
+});
