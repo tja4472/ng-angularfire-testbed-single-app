@@ -63,7 +63,7 @@
     "@typescript-eslint/parser": "5.30.5",
     "cross-env": "7.0.3",
     "cypress": "10.3.0",
-    "cypress-firebase": "2.2.1",
+    "cypress-firebase": "2.2.2",
     "eslint": "8.19.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-chai-friendly": "0.7.2",
