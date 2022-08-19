@@ -17,15 +17,17 @@ import {
 } from '@angular/fire/compat/firestore';
 // import { AngularFirePerformanceModule } from '@angular/fire/compat/performance';
 
-import { environment } from '../environments/environment';
+import { EnvironmentService } from './environment.service';
 
 // experimentalForceLongPolling required for Cypress testing.
 // Cannot connect to Firestore emulator
 // https://github.com/cypress-io/cypress/issues/6350#issuecomment-587708852
 
+const environmentService = new EnvironmentService();
+
 @NgModule({
   imports: [
-    AngularFireModule.initializeApp(environment.firebase.config),
+    AngularFireModule.initializeApp(environmentService.firebase.config),
     // AngularFirestoreModule.enablePersistence(),
     // AngularFireAnalyticsModule,
     AngularFireAuthModule,
@@ -41,11 +43,11 @@ import { environment } from '../environments/environment';
     },
     {
       provide: USE_AUTH_EMULATOR,
-      useValue: environment.firebase.emulators?.auth,
+      useValue: environmentService.firebase.emulators?.auth,
     },
     {
       provide: USE_FIRESTORE_EMULATOR,
-      useValue: environment.firebase.emulators?.firestore,
+      useValue: environmentService.firebase.emulators?.firestore,
     },
   ],
 })

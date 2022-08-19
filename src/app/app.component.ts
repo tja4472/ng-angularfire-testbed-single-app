@@ -28,8 +28,8 @@ export class AppComponent {
   items: Observable<Item[]> | undefined;
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
-    console.log('XXXX>', libTextAB);
-    console.log('YYYY>', libText);
+    // console.log('XXXX>', libTextAB);
+    // console.log('YYYY>', libText);
   }
 
   startListening() {

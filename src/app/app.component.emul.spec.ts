@@ -13,13 +13,9 @@ import { of } from 'rxjs';
 
 import { AppComponent } from './app.component';
 
-import { environment } from '../environments/environment.emulator-real';
-
 /*
 Don't use import { AppFirebaseModule } from './app-firebase.module' as jest does not 
 know about angular environment file handling.
-
-
 */
 
 describe('AppComponent(emulator)', () => {
