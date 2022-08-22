@@ -83,12 +83,20 @@ jobs:
           path: ~/.cache/firebase/emulators
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
 
-      - name: Cypress tests
+      - name: Run E2E tests
         uses: cypress-io/github-action@v4
         with:
           start: npm run emulator-demo-1, npm run start:emulator-demo-prod
           wait-on: 'http://localhost:4400, http://localhost:4200'
           command: npm run cypress:run:emulate-demo
+
+      - name: Run Component tests
+        uses: cypress-io/github-action@v4
+        with:
+          # we have already installed everything
+          install: false
+          # to run component tests we need to use "component: true"
+          component: true          
 
   jest:
     name: Jest tests

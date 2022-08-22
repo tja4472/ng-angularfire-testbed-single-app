@@ -1,9 +1,9 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "sourceMap": false,  
-    // Explicit about types included to avoid clashing with Jest global types
+    "sourceMap": false,
     "types": ["cypress", "node", "cypress-firebase"]
   },
-  "include": ["**/*.ts"],  
+  "include": ["**/*.ts"],
+  "files": []
 }

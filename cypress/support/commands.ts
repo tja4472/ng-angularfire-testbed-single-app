@@ -24,6 +24,21 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      getBySel(
+        dataTestAttribute: string,
+        args?: any
+      ): Chainable<JQuery<HTMLElement>>;
+      getBySelLike(
+        dataTestPrefixAttribute: string,
+        args?: any
+      ): Chainable<JQuery<HTMLElement>>;
+    }
+  }
+}
+
 // https://github.com/cypress-io/cypress-realworld-app/blob/develop/cypress/support/commands.ts
 Cypress.Commands.add('getBySel', (selector, ...args) => {
   return cy.get(`[data-test=${selector}]`, ...args);
