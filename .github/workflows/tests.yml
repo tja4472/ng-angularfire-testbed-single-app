@@ -1,6 +1,11 @@
 # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
 # https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 # https://github.com/cypress-io/github-action
+
+# npm@8.19.2
+# https://github.com/npm/cli/issues/4942
+# npm ERR! `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync
+# run npm install twice after deleting node_modules and lock file.
 name: tests
 
 on:
@@ -32,8 +37,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          # cache: 'npm'
 
+      # Required for firebase-tools v11.14.0        
+      # https://github.com/npm/cli/issues/4942    
+      - run: npm i -g npm@8.5.5  
+      
       - name: Cache firebase emulators
         uses: actions/cache@v3
         with:
@@ -62,7 +71,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          # cache: 'npm'
+
+      # Required for firebase-tools v11.14.0        
+      # https://github.com/npm/cli/issues/4942    
+      - run: npm i -g npm@8.5.5  
 
       - name: Cache firebase emulators
         uses: actions/cache@v3
@@ -92,7 +105,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          # cache: 'npm'
+
+      # Required for firebase-tools v11.14.0        
+      # https://github.com/npm/cli/issues/4942    
+      - run: npm i -g npm@8.5.5        
+
       - run: npm ci
 
       - name: Cache firebase emulators
