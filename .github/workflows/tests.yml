@@ -102,7 +102,7 @@ jobs:
 
       # Required for firebase-tools v11.14.0            
       - run: npm i -g npm@8          
-
+      - run: npm --version
       - run: npm ci
 
       - name: Cache firebase emulators
