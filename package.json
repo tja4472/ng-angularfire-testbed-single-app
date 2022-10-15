@@ -58,7 +58,7 @@
     "@angular/compiler-cli": "14.2.6",
     "@firebase/rules-unit-testing": "2.0.4",
     "@types/jest": "28.1.8",
-    "@types/node": "16.11.65",
+    "@types/node": "16.11.66",
     "@typescript-eslint/eslint-plugin": "5.40.0",
     "@typescript-eslint/parser": "5.40.0",
     "cross-env": "7.0.3",
