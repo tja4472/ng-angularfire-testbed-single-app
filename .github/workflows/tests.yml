@@ -2,10 +2,23 @@
 # https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 # https://github.com/cypress-io/github-action
 
-# npm@8.19.2
-# https://github.com/npm/cli/issues/4942
-# npm ERR! `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync
-# run npm install twice after deleting node_modules and lock file.
+# ------------------------------------------------------------------
+# Required for firebase-tools v11.14.0
+# [Installing v11.12.0 fails with EBADPLATFORM on linux container](https://github.com/firebase/firebase-tools/issues/5041)
+# [[BUG] npm ci still does not work with overrides correctly](https://github.com/npm/cli/issues/4942)
+# `npm ci`
+#
+# npm ERR! code EUSAGE
+# npm ERR!
+# npm ERR! `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+# npm ERR!
+# npm ERR! Missing: @esbuild/linux-loong64@0.15.8 from lock file
+# npm ERR! Missing: esbuild-android-64@0.15.8 from lock file
+#
+# Solution:
+# Update package.json
+# Run `npm install` twice
+# ------------------------------------------------------------------
 name: tests
 
 on:
@@ -39,10 +52,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           # cache: 'npm'
 
-      # Required for firebase-tools v11.14.0        
-      # https://github.com/npm/cli/issues/4942    
-      - run: npm i -g npm@8.5.5  
-      
+      - run: npm i -g npm@8
+
       - name: Cache firebase emulators
         uses: actions/cache@v3
         with:
@@ -73,9 +84,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           # cache: 'npm'
 
-      # Required for firebase-tools v11.14.0        
-      # https://github.com/npm/cli/issues/4942    
-      - run: npm i -g npm@8.5.5  
+      - run: npm i -g npm@8
 
       - name: Cache firebase emulators
         uses: actions/cache@v3
@@ -107,9 +116,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           # cache: 'npm'
 
-      # Required for firebase-tools v11.14.0        
-      # https://github.com/npm/cli/issues/4942    
-      - run: npm i -g npm@8.5.5        
+      - run: npm i -g npm@8
 
       - run: npm ci
 
