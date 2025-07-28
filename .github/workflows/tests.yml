@@ -55,7 +55,7 @@ jobs:
       - run: npm i -g npm@8
 
       - name: Cache firebase emulators
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/firebase/emulators
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
@@ -87,7 +87,7 @@ jobs:
       - run: npm i -g npm@8
 
       - name: Cache firebase emulators
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/firebase/emulators
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
@@ -121,7 +121,7 @@ jobs:
       - run: npm ci
 
       - name: Cache firebase emulators
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/firebase/emulators
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
